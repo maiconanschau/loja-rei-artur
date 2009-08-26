@@ -6,6 +6,6 @@
 </div>
 
 <?php echo $this->renderPartial('_form', array(
-	'model'=>$model,
+	'model'=>$model,'modelFisico'=>$modelFisico,'modelJuridico'=>$modelJuridico,
 	'update'=>false,
 )); ?>

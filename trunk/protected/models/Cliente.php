@@ -91,4 +91,15 @@ class Cliente extends CActiveRecord {
         'newsletterCliente' => 'Newsletter',
         );
     }
+
+    public function beforeValidate() {
+        $this->telefoneCliente = preg_replace("/[^0-9]/","",$this->telefoneCliente);
+        $this->celularCliente = preg_replace("/[^0-9]/","",$this->celularCliente);
+        return true;
+    }
+
+    public function beforeSave() {
+        $this->senhaCliente = md5($this->senhaCliente.Yii::app()->params['md5Salt']);
+        return true;
+    }
 }
