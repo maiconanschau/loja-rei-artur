@@ -53,6 +53,7 @@ class Cliente extends CActiveRecord {
         return array(
         array('emailCliente','length','max'=>150),
         array('emailCliente','email'),
+        array('emailCliente','unique'),
         array('senhaCliente','length','max'=>32),
         array('senhaCliente', 'compare', 'compareAttribute'=>'senha2Cliente', 'on'=>'create'),
         array('senha2Cliente', 'required', 'on'=>'create'),
