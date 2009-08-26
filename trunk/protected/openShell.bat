@@ -1,0 +1,1 @@
+C:\xampp\php\php.exe -c C:\xampp\php\php.ini yiic shell ..\index.php
