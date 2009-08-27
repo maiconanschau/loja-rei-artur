@@ -1,5 +1,5 @@
 <?php
-class CategoriaProdutoController extends CController {
+class CategoriaprodutoController extends CController {
     const PAGE_SIZE=10;
 
     public $defaultAction='admin';

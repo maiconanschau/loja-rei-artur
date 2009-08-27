@@ -124,6 +124,7 @@
         $('#ClienteJuridico_cnpjCliente').mask('99.999.999/9999-99');
         $('#Cliente_telefoneCliente').add('#Cliente_celularCliente').mask('99 9999-9999');
         $('#Endereco_cepEndereco').mask('99999-999');
+		$('#Endereco_numeroEndereco').numeric();
 
         /* FORM FISICO/JURIDICO */
         function exibeForm() {
