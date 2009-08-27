@@ -29,14 +29,27 @@ class ClienteController extends CController {
      */
     public function accessRules() {
         return array(
-        array('deny', // allow admin user to perform 'admin' and 'delete' actions
+        array('deny',
         'actions'=>array('*'),
         'users'=>array('admin'),
         ),
-        array('allow',  // deny all users
+        array('allow',
         'users'=>array('*'),
         ),
         );
+    }
+
+    public function actionLogin() {
+        $model = new ClienteLoginForm();
+
+        if (Yii::app()->request->isPostRequest) {
+            $model->attributes=$_POST['ClienteLoginForm'];
+            if ($model->validate()) {
+                $this->redirect(Yii::app()->user->returnUrl);
+            }
+        }
+
+        $this->render('login',array('model'=>$model));
     }
 
     public function actionFimCadastro() {
@@ -49,6 +62,8 @@ class ClienteController extends CController {
      * If creation is successful, the browser will be redirected to the 'show' page.
      */
     public function actionCreate() {
+        Yii::import('application.extensions.TXGruppi.Util.*');
+
         CTXClientScript::registerScriptFile('jquery');
         CTXClientScript::registerScriptFile('jquery.maskedinput');
 
@@ -57,33 +72,39 @@ class ClienteController extends CController {
 
         $modelFisico = new ClienteFisico;
         $modelJuridico = new ClienteJuridico;
+        $modelEndereco = new Endereco;
 
         if(isset($_POST['Cliente'])) {
             $model->attributes=$_POST['Cliente'];
             $model->senha2Cliente = $_POST['Cliente']['senha2Cliente'];
             $modelFisico->attributes=$_POST['ClienteFisico'];
             $modelJuridico->attributes=$_POST['ClienteJuridico'];
+            $modelEndereco->attributes=$_POST['Endereco'];
 
             $validoFisico = $model->tipoCliente == 1 ? $modelFisico->validate('create') : true;
             $validoJuridico = $model->tipoCliente == 2 ? $modelJuridico->validate('create') : true;
             $validoCliente = $model->validate('create');
-            if ($validoCliente && $validoFisico && $validoJuridico) {
+            $validoEndereco = $modelEndereco->validate();
+            if ($validoCliente && $validoFisico && $validoJuridico && $validoEndereco) {
                 if ($model->save()) {
-                    if ($model->tipoCliente == 1) {
-                        $modelFisico->idCliente = $model->idCliente;
-                        if ($modelFisico->save()) {
-                            $this->redirect(array('fimCadastro','id'=>$model->idCliente));
-                        }
-                    } else if ($model->tipoCliente == 2) {
+                    $modelEndereco->idCliente = $model->idCliente;
+                    if ($modelEndereco->save()) {
+                        if ($model->tipoCliente == 1) {
+                            $modelFisico->idCliente = $model->idCliente;
+                            if ($modelFisico->save()) {
+                                $this->redirect(array('fimCadastro','id'=>$model->idCliente));
+                            }
+                        } elseif ($model->tipoCliente == 2) {
                             $modelJuridico->idCliente = $model->idCliente;
                             if ($modelJuridico->save()) {
                                 $this->redirect(array('fimCadastro','id'=>$model->idCliente));
                             }
                         }
+                    }
                 }
             }
         }
-        $this->render('create',array('model'=>$model,'modelFisico'=>$modelFisico,'modelJuridico'=>$modelJuridico));
+        $this->render('create',array('model'=>$model,'modelFisico'=>$modelFisico,'modelJuridico'=>$modelJuridico,'modelEndereco'=>$modelEndereco));
     }
 
     /**
