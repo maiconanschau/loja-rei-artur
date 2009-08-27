@@ -1,83 +1,99 @@
 <?php
 
-class Endereco extends CActiveRecord
-{
-	/**
-	 * The followings are the available columns in table 'Endereco':
-	 * @var integer $idCliente
-	 * @var integer $idEndereco
-	 * @var integer $tipoEndereco
-	 * @var string $ruaEndereco
-	 * @var string $numeroEndereco
-	 * @var string $complementoEndereco
-	 * @var string $bairroEndereco
-	 * @var string $cepEndereco
-	 * @var string $cidadeEndereco
-	 * @var string $estadoEndereco
-	 */
+class Endereco extends CActiveRecord {
+/**
+ * The followings are the available columns in table 'Endereco':
+ * @var integer $idCliente
+ * @var integer $idEndereco
+ * @var integer $tipoEndereco
+ * @var string $ruaEndereco
+ * @var string $numeroEndereco
+ * @var string $complementoEndereco
+ * @var string $bairroEndereco
+ * @var string $cepEndereco
+ * @var string $cidadeEndereco
+ * @var string $estadoEndereco
+ */
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @return CActiveRecord the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+const TIPO_PADRAO = 1;
+const TIPO_ENTREGA = 2;
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return 'Endereco';
-	}
+/**
+ * Returns the static model of the specified AR class.
+ * @return CActiveRecord the static model class
+ */
+    public static function model($className=__CLASS__) {
+        return parent::model($className);
+    }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		return array(
-			array('ruaEndereco','length','max'=>150),
-			array('numeroEndereco','length','max'=>10),
-			array('complementoEndereco','length','max'=>10),
-			array('bairroEndereco','length','max'=>45),
-			array('cepEndereco','length','max'=>8),
-			array('cidadeEndereco','length','max'=>150),
-			array('estadoEndereco','length','max'=>2),
-			array('idCliente, idEndereco, tipoEndereco, ruaEndereco, numeroEndereco, bairroEndereco, cepEndereco, cidadeEndereco, estadoEndereco', 'required'),
-			array('idCliente, idEndereco, tipoEndereco', 'numerical', 'integerOnly'=>true),
-		);
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName() {
+        return 'Endereco';
+    }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-		);
-	}
+    public function getTipoOptions() {
+        return array(
+            self::TIPO_PADRAO=>"Padrão",
+            self::TIPO_ENTREGA=>"Entrega"
+        );
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'idCliente'=>'Id Cliente',
-			'idEndereco'=>'Id Endereco',
-			'tipoEndereco'=>'Tipo Endereco',
-			'ruaEndereco'=>'Rua Endereco',
-			'numeroEndereco'=>'Numero Endereco',
-			'complementoEndereco'=>'Complemento Endereco',
-			'bairroEndereco'=>'Bairro Endereco',
-			'cepEndereco'=>'Cep Endereco',
-			'cidadeEndereco'=>'Cidade Endereco',
-			'estadoEndereco'=>'Estado Endereco',
-		);
-	}
+    public function getTipoTexto() {
+        $options = $this->getTipoOptions();
+        return isset($options[$this->tipoEndereco]) ? $options[$this->tipoEndereco] : "desconhecido ({$this->tipoEndereco})";
+    }
+
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules() {
+        return array(
+        array('ruaEndereco','length','max'=>150),
+        array('numeroEndereco','length','max'=>10),
+        array('complementoEndereco','length','max'=>10),
+        array('bairroEndereco','length','max'=>45),
+        array('cepEndereco','length','max'=>8),
+        array('cidadeEndereco','length','max'=>150),
+        array('estadoEndereco','length','max'=>2),
+        array('tipoEndereco, ruaEndereco, numeroEndereco, bairroEndereco, cepEndereco, cidadeEndereco, estadoEndereco', 'required'),
+        array('idCliente, idEndereco, tipoEndereco', 'numerical', 'integerOnly'=>true),
+        );
+    }
+
+    /**
+     * @return array relational rules.
+     */
+    public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+        return array(
+        'cliente'=>array(self::BELONGS_TO,'Cliente','idCliente'),
+        );
+    }
+
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels() {
+        return array(
+        'idCliente'=>'Cliente',
+        'idEndereco'=>'Id',
+        'tipoEndereco'=>'Tipo',
+        'ruaEndereco'=>'Rua',
+        'numeroEndereco'=>'Número',
+        'complementoEndereco'=>'Complemento',
+        'bairroEndereco'=>'Bairro',
+        'cepEndereco'=>'CEP',
+        'cidadeEndereco'=>'Cidade',
+        'estadoEndereco'=>'Estado',
+        );
+    }
+
+    public function beforeValidate() {
+        if (!is_numeric($this->tipoEndereco)) $this->tipoEndereco = self::TIPO_PADRAO;
+        $this->cepEndereco = preg_replace("/[^0-9]/", "", $this->cepEndereco);
+        return true;
+    }
 }

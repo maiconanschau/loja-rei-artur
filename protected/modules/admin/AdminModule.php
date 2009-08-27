@@ -9,7 +9,7 @@ class AdminModule extends CWebModule {
 
         Yii::app()->theme = 'admin';
 
-        if (Yii::app()->user->isGuest && !preg_match("'admin\/site\/login'",Yii::app()->request->pathInfo)) {
+        if (Yii::app()->user->id != 'admin' && !preg_match("'admin\/site\/login'",Yii::app()->request->pathInfo)) {
             Yii::app()->request->redirect(CHtml::normalizeUrl(array('admin/site/login')));
         }
     }
