@@ -53,7 +53,7 @@
                 <table width="200" border="0" cellspacing="2" cellpadding="2">
                     <tr>
                         <td colspan="2" bgcolor="#CC9933">
-                            <a href="<?php echo CHtml::normalizeUrl(Yii::app()->user->id == 'admin' ? array('/admin') : array('/')); ?>"><strong>Home</strong></a><br/>
+                            <a href="<?php echo CHtml::normalizeUrl(Yii::app()->user->id == 'admin' ? array('/admin') : array('/site')); ?>"><strong>Home</strong></a><br/>
                         </td>
                     </tr>
                     <?php if (Yii::app()->user->id != 'admin') : ?>

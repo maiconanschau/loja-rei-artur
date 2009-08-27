@@ -58,6 +58,7 @@ class ClienteController extends CController {
 
         CTXClientScript::registerScriptFile('jquery');
         CTXClientScript::registerScriptFile('jquery.maskedinput');
+        CTXClientScript::registerScriptFile('jquery.numeric');
 
         $model=new Cliente;
         $model->setScenario('create');
