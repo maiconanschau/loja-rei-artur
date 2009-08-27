@@ -1,11 +1,8 @@
 <h2>Fotos do produto '<?php echo $model->nomeProduto; ?>'</h2>
 
 <div class="actionBar">
-    [<?php echo CHtml::link('Produto List',array('list')); ?>]
-    [<?php echo CHtml::link('New Produto',array('create')); ?>]
-    [<?php echo CHtml::link('Update Produto',array('update','id'=>$model->idProduto)); ?>]
-    [<?php echo CHtml::linkButton('Delete Produto',array('submit'=>array('delete','id'=>$model->idProduto),'confirm'=>'Are you sure?')); ?>]
-    [<?php echo CHtml::link('Manage Produto',array('admin')); ?>]
+    [<?php echo CHtml::link('Novo produto',array('create')); ?>]
+    [<?php echo CHtml::link('Listar produtos',array('admin')); ?>]
 </div>
 
 <div class="yiiForm">

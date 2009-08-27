@@ -47,6 +47,7 @@ class ClienteFisico extends CActiveRecord {
         return array(
         array('nomeCliente','length','max'=>150),
         array('sexoCliente','length','max'=>1),
+        array('cpfCliente','unique'),
         array('nomeCliente, cpfCliente, sexoCliente, nascimentoCliente', 'required'),
         array('idCliente', 'numerical', 'integerOnly'=>true),
         array('cpfCliente','application.extensions.TXGruppi.Validators.CTXCpfValidator'),

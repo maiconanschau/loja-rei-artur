@@ -88,7 +88,7 @@ class Cliente extends CActiveRecord {
         'senha2Cliente' => 'Confirmação',
         'telefoneCliente' => 'Telefone',
         'celularCliente' => 'Celular',
-        'chamadoCliente' => 'Chamado',
+        'chamadoCliente' => 'Tratamento',
         'newsletterCliente' => 'Newsletter',
         );
     }

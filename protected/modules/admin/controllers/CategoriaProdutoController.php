@@ -1,22 +1,15 @@
 <?php
-
 class CategoriaProdutoController extends CController {
     const PAGE_SIZE=10;
-    
-    /**
-     * @var string specifies the default action to be 'admin'.
-     */
+
     public $defaultAction='admin';
 
-    /**
-     * @var CActiveRecord the currently loaded data model instance.
-     */
     private $_model;
 
-    /**
-     * Creates a new model.
-     * If creation is successful, the browser will be redirected to the 'create' page.
-     */
+    public function init() {
+        $this->pageTitle = Yii::app()->name." - Categoria";
+    }
+
     public function actionCreate() {
         $model=new CategoriaProduto;
         if(isset($_POST['CategoriaProduto'])) {
@@ -27,10 +20,6 @@ class CategoriaProdutoController extends CController {
         $this->render('create',array('model'=>$model));
     }
 
-    /**
-     * Updates a particular model.
-     * If update is successful, the browser will be redirected to the 'admin' page.
-     */
     public function actionUpdate() {
         $model=$this->loadCategoriaProduto();
         if(isset($_POST['CategoriaProduto'])) {
@@ -41,9 +30,6 @@ class CategoriaProdutoController extends CController {
         $this->render('update',array('model'=>$model));
     }
 
-    /**
-     * Manages all models.
-     */
     public function actionAdmin() {
         $this->processAdminCommand();
 
@@ -65,11 +51,6 @@ class CategoriaProdutoController extends CController {
         ));
     }
 
-    /**
-     * Returns the data model based on the primary key given in the GET variable.
-     * If the data model is not found, an HTTP exception will be raised.
-     * @param integer the primary key value. Defaults to null, meaning using the 'id' GET variable
-     */
     public function loadCategoriaProduto($id=null) {
         if($this->_model===null) {
             if($id!==null || isset($_GET['id']))
@@ -80,9 +61,6 @@ class CategoriaProdutoController extends CController {
         return $this->_model;
     }
 
-    /**
-     * Executes any command triggered on the admin page.
-     */
     protected function processAdminCommand() {
         if(isset($_POST['command'], $_POST['id']) && $_POST['command']==='delete') {
             $this->loadCategoriaProduto($_POST['id'])->delete();

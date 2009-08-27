@@ -1,43 +1,51 @@
-<h2>View Produto <?php echo $model->idProduto; ?></h2>
+<h2>Produto '<?php echo $model->nomeProduto; ?>'</h2>
 
 <div class="actionBar">
-[<?php echo CHtml::link('Produto List',array('list')); ?>]
-[<?php echo CHtml::link('New Produto',array('create')); ?>]
-[<?php echo CHtml::link('Update Produto',array('update','id'=>$model->idProduto)); ?>]
-[<?php echo CHtml::linkButton('Delete Produto',array('submit'=>array('delete','id'=>$model->idProduto),'confirm'=>'Are you sure?')); ?>
-]
-[<?php echo CHtml::link('Manage Produto',array('admin')); ?>]
+    [<?php echo CHtml::link('Novo produto',array('create')); ?>]
+    [<?php echo CHtml::link('Listar produtos',array('admin')); ?>]
 </div>
 
 <table class="dataGrid">
-<tr>
-	<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('idCategoria')); ?>
-</th>
-    <td><?php echo CHtml::encode($model->idCategoria); ?>
-</td>
-</tr>
-<tr>
-	<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('nomeProduto')); ?>
-</th>
-    <td><?php echo CHtml::encode($model->nomeProduto); ?>
-</td>
-</tr>
-<tr>
-	<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('descricaoProduto')); ?>
-</th>
-    <td><?php echo CHtml::encode($model->descricaoProduto); ?>
-</td>
-</tr>
-<tr>
-	<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('pesoProduto')); ?>
-</th>
-    <td><?php echo CHtml::encode($model->pesoProduto); ?>
-</td>
-</tr>
-<tr>
-	<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('precoProduto')); ?>
-</th>
-    <td><?php echo CHtml::encode($model->precoProduto); ?>
-</td>
-</tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('idCategoria')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->categoria->nomeCategoria); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('nomeProduto')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->nomeProduto); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('descricaoCurtaProduto')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->descricaoCurtaProduto); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('descricaoLongaProduto')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->descricaoLongaProduto); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('pesoProduto')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->pesoProduto); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('fabricanteProduto')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->fabricanteProduto); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('precoProduto')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->precoProduto); ?>
+        </td>
+    </tr>
 </table>

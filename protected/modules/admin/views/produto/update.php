@@ -1,13 +1,12 @@
-<h2>Update Produto <?php echo $model->idProduto; ?></h2>
+<h2>Editar produto '<?php echo $model->nomeProduto; ?>'</h2>
 
 <div class="actionBar">
-[<?php echo CHtml::link('Produto List',array('list')); ?>]
-[<?php echo CHtml::link('New Produto',array('create')); ?>]
-[<?php echo CHtml::link('Manage Produto',array('admin')); ?>]
+    [<?php echo CHtml::link('Novo produto',array('create')); ?>]
+    [<?php echo CHtml::link('Listar produtos',array('admin')); ?>]
 </div>
 
 <?php echo $this->renderPartial('_form', array(
-	'model'=>$model,
-	'update'=>true,
-        'categorias'=>$categorias
+'model'=>$model,
+'update'=>true,
+'categorias'=>$categorias
 )); ?>
