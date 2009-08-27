@@ -1,21 +1,15 @@
 <?php
-
 class ProdutoController extends CController {
     const PAGE_SIZE=10;
 
-    /**
-     * @var string specifies the default action to be 'admin'.
-     */
     public $defaultAction='admin';
 
-    /**
-     * @var CActiveRecord the currently loaded data model instance.
-     */
     private $_model;
 
-    /**
-     * Shows a particular model.
-     */
+    public function init() {
+        $this->pageTitle = Yii::app()->name." - Produto";
+    }
+
     public function actionShow() {
         $this->render('show',array('model'=>$this->loadProduto()));
     }
@@ -57,10 +51,6 @@ class ProdutoController extends CController {
             ));
     }
 
-    /**
-     * Creates a new model.
-     * If creation is successful, the browser will be redirected to the 'show' page.
-     */
     public function actionCreate() {
         CTXClientScript::registerScriptFile('jquery');
         CTXClientScript::registerScriptFile('jquery.decimal');
@@ -82,10 +72,6 @@ class ProdutoController extends CController {
         $this->render('create',array('model'=>$model,'categorias'=>$categorias));
     }
 
-    /**
-     * Updates a particular model.
-     * If update is successful, the browser will be redirected to the 'show' page.
-     */
     public function actionUpdate() {
         CTXClientScript::registerScriptFile('jquery');
         CTXClientScript::registerScriptFile('jquery.decimal');
@@ -106,9 +92,6 @@ class ProdutoController extends CController {
         $this->render('update',array('model'=>$model,'categorias'=>$categorias));
     }
 
-    /**
-     * Manages all models.
-     */
     public function actionAdmin() {
         $this->processAdminCommand();
 
@@ -130,11 +113,6 @@ class ProdutoController extends CController {
         ));
     }
 
-    /**
-     * Returns the data model based on the primary key given in the GET variable.
-     * If the data model is not found, an HTTP exception will be raised.
-     * @param integer the primary key value. Defaults to null, meaning using the 'id' GET variable
-     */
     public function loadProduto($id=null) {
         if($this->_model===null) {
             if($id!==null || isset($_GET['id']))
@@ -145,9 +123,6 @@ class ProdutoController extends CController {
         return $this->_model;
     }
 
-    /**
-     * Executes any command triggered on the admin page.
-     */
     protected function processAdminCommand() {
         if(isset($_POST['command'], $_POST['id']) && $_POST['command']==='delete') {
             $this->loadProduto($_POST['id'])->delete();

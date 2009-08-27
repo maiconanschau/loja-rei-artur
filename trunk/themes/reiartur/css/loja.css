@@ -1,0 +1,239 @@
+@charset "utf-8";
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+body  {
+    font: 100% Verdana, Arial, Helvetica, sans-serif;
+    background: #666666;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #000000;
+}
+.twoColHybLtHdr #container {
+    width: 65%;
+    background: #FFFFFF;
+    margin: 0 auto;
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px radius #000000;
+    text-align:left;
+} 
+.twocolHybLtHdr #horizontal{
+    background-color: #FFF;
+    padding: 100px;
+
+}
+.twoColHybLtHdr #header {
+
+    background-color: #FFF;
+    background-image: url(../imagens/terno02.jpg);
+    height: 150px;
+    padding-top: 0;
+    padding-right: 10px;
+    padding-bottom: 0;
+    padding-left: 10px;
+    background-repeat: no-repeat;
+} 
+.twoColHybLtHdr #header h1 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.twoColHybLtHdr #header form {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #D9D336;
+}
+
+
+.twoColHybLtHdr #sidebar1 {
+    float: left;
+    width: auto;
+    background-color: #FFF;
+    padding-top: 0px;
+    padding-right: 0;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    clear: left;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: 0px;
+    border:groove;
+}
+/
+.twoColHybLtHdr #sidebar1 h3, .twoColHybLtHdr #sidebar1 p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+ul#menutt{
+    margin:0px;
+    width:auto;
+    list-style:none;
+    background-color: #AF9F17;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: oblique;
+    background-position: left top;
+    height: auto;
+    padding-left: 0px;
+    left: 0px;
+    text-align:center;
+}
+
+ul#menutt li{
+    width:auto;
+    list-style:none;
+    text-align:center;
+    position:relative;
+    margin: auto;
+    right: 0px;
+    padding: 0px;
+}
+
+ul#menutt a{
+    width:160px;
+    display:block;
+    text-align:left;
+    padding:3px 3px;
+    margin-bottom:1px;
+    text-decoration:none;
+    color:#000;
+    background:#D9D336;
+    border-left:12px solid #AF9F17;
+    border-right:3px solid #AF9F17;
+    voice-family:"\"}\"";
+    voice-family:inherit;
+    width:125px;
+}
+>#pagebody>ul#menutt a{
+    width:125px;
+}
+/*Fix IE. Hide from IE Mac \*/
+*html ul#menutt li {float:left; height:0%;}
+* html ul#menutt li a{
+    height:1%;
+    margin: 1px;
+}
+/*End*/
+
+ul#menutt a:hover{		
+    color:#FFF;
+    background:#5E6A1B;
+    border-right:3px solid #B2B155;
+    border-left:12px solid #B2B155;
+}
+ul#menutt a span{
+    display:none;
+}
+ul#menutt a:hover span{
+    display:block;
+    position:absolute;
+    top:0;
+    left:160px;
+    width:130px;
+    padding:5px;
+    margin-left:2px;
+    color:#FFF;
+    background:#474500;
+    font-size:10px;
+    text-align:left;
+    border:1px solid #000;
+}
+
+.twoColHybLtHdr #mainContent {
+    float:left;
+    text-align:left;
+    background-color: #FFF;
+    width:680px;
+    font-size:small;
+    margin-top: 5px;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+} 
+.twoColHybLtHdr #footer {
+    padding: 0 10px;
+    color: #000;
+    background-color: #CC9933;
+    clear:both;
+} 
+.twoColHybLtHdr #footer p {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+.fltrt { 
+    float: right;
+    margin-left: 8px;
+}
+.fltlft { 
+    float: left;
+    margin-right: 8px;
+}
+.clearfloat { 
+    clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+/* begin data grid style */
+table.dataGrid
+{
+    background: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.dataGrid th, table.dataGrid td
+{
+    font-size: 0.9em;
+    border: 1px #CC9933 solid;
+    padding: 0.3em;
+}
+
+table.dataGrid th
+{
+    background: #EEBB55;
+    text-align: center;
+}
+
+table.dataGrid th.label
+{
+    width: 150px;
+}
+
+table.dataGrid tr.odd
+{
+    background: #FFFFDD;
+}
+/* end of data grid style */
+
+.actionBar
+{
+    margin: 10px;
+}
+
+div.item
+{
+    margin: 10px 0 0 0;
+    border: 1px solid silver;
+    padding: 5px;
+}
+
+a img {
+    border: 0px;
+}

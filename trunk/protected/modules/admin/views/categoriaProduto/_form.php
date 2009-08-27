@@ -1,9 +1,4 @@
 <div class="yiiForm">
-
-    <p>
-        Fields with <span class="required">*</span> are required.
-    </p>
-
     <?php echo CHtml::beginForm(); ?>
 
     <?php echo CHtml::errorSummary($model); ?>
@@ -13,12 +8,16 @@
         <?php echo CHtml::activeTextField($model,'nomeCategoria',array('size'=>45,'maxlength'=>45)); ?>
     </div>
     <div class="simple">
+        <?php echo CHtml::activeLabelEx($model,'descricaoCategoria'); ?>
+        <?php echo CHtml::activeTextField($model,'descricaoCategoria',array('size'=>60,'maxlength'=>255)); ?>
+    </div>
+    <div class="simple">
         <?php echo CHtml::activeLabelEx($model,'visivelCategoria'); ?>
         <?php echo CHtml::activeDropDownList($model, 'visivelCategoria', array(1=>'Sim',0=>'Não')); ?>
     </div>
 
     <div class="action">
-        <?php echo CHtml::submitButton($update ? 'Save' : 'Create'); ?>
+        <?php echo CHtml::submitButton($update ? 'Salvar' : 'Adicionar'); ?>
     </div>
 
     <?php echo CHtml::endForm(); ?>

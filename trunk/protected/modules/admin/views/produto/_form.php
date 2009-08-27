@@ -1,9 +1,4 @@
 <div class="yiiForm">
-
-    <p>
-        Fields with <span class="required">*</span> are required.
-    </p>
-
     <?php echo CHtml::beginForm(); ?>
 
     <?php echo CHtml::errorSummary($model); ?>
@@ -17,8 +12,16 @@
         <?php echo CHtml::activeTextField($model,'nomeProduto',array('size'=>45,'maxlength'=>45)); ?>
     </div>
     <div class="simple">
-        <?php echo CHtml::activeLabelEx($model,'descricaoProduto'); ?>
-        <?php echo CHtml::activeTextArea($model,'descricaoProduto',array('rows'=>6, 'cols'=>50)); ?>
+        <?php echo CHtml::activeLabelEx($model,'descricaoCurtaProduto'); ?>
+        <?php echo CHtml::activeTextArea($model,'descricaoCurtaProduto',array('rows'=>6, 'cols'=>50)); ?>
+    </div>
+    <div class="simple">
+        <?php echo CHtml::activeLabelEx($model,'descricaoLongaProduto'); ?>
+        <?php echo CHtml::activeTextArea($model,'descricaoLongaProduto',array('rows'=>6, 'cols'=>50)); ?>
+    </div>
+    <div class="simple">
+        <?php echo CHtml::activeLabelEx($model,'fabricanteProduto'); ?>
+        <?php echo CHtml::activeTextField($model,'fabricanteProduto',array('size'=>35,'maxlength'=>255)); ?>
     </div>
     <div class="simple">
         <?php echo CHtml::activeLabelEx($model,'pesoProduto'); ?>
@@ -30,7 +33,7 @@
     </div>
 
     <div class="action">
-        <?php echo CHtml::submitButton($update ? 'Save' : 'Create'); ?>
+        <?php echo CHtml::submitButton($update ? 'Salvar' : 'Adicionar'); ?>
     </div>
 
     <?php echo CHtml::endForm(); ?>

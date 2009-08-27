@@ -33,6 +33,7 @@ class ClienteJuridico extends CActiveRecord {
         array('razaoSocialCliente','length','max'=>150),
         array('inscricaoEstadualCliente','length','max'=>45),
         array('responsavelCliente','length','max'=>150),
+        array('cnpjCliente','unique'),
         array('razaoSocialCliente, cnpjCliente, inscricaoEstadualCliente, responsavelCliente', 'required'),
         array('idCliente', 'numerical', 'integerOnly'=>true),
         array('cnpjCliente','application.extensions.TXGruppi.Validators.CTXCnpjValidator'),

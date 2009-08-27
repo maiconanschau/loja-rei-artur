@@ -1,4 +1,4 @@
-<h3>Login</h3>
+<h3>Área administrativa</h3>
 
 <div class="yiiForm">
     <?php echo CHtml::beginForm(); ?>
@@ -12,7 +12,7 @@
 
     <div class="simple">
         <?php echo CHtml::label('Senha', 'senha'); ?>
-        <?php echo CHtml::passwordField('senha'); ?>
+        <?php echo CHtml::passwordField('senha',(YII_DEBUG ? $chave : null)); ?>
     </div>
 
     <div class='action'>

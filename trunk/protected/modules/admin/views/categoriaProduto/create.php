@@ -1,11 +1,11 @@
-<h2>New CategoriaProduto</h2>
+<h2>Nova categoria</h2>
 
 <div class="actionBar">
-[<?php echo CHtml::link('CategoriaProduto List',array('list')); ?>]
-[<?php echo CHtml::link('Manage CategoriaProduto',array('admin')); ?>]
+    [<?php echo CHtml::link('Nova categoria',array('create')); ?>]
+    [<?php echo CHtml::link('Listar categorias',array('admin')); ?>]
 </div>
 
 <?php echo $this->renderPartial('_form', array(
-	'model'=>$model,
-	'update'=>false,
+'model'=>$model,
+'update'=>false,
 )); ?>
