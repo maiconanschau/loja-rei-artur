@@ -125,7 +125,15 @@ class ProdutoController extends CController {
 
     protected function processAdminCommand() {
         if(isset($_POST['command'], $_POST['id']) && $_POST['command']==='delete') {
-            $this->loadProduto($_POST['id'])->delete();
+            $produto = $this->loadProduto($_POST['id']);
+            
+            $fotos = $produto->fotos;
+            foreach ($fotos as $v) {
+            	@unlink(Yii::app()->params['imagePath']."/".$v->arquivoFotoProduto);
+            	$v->delete();
+            }
+            
+            $produto->delete();
             // reload the current page to avoid duplicated delete actions
             $this->refresh();
         }

@@ -60,6 +60,7 @@ class ClienteController extends CController {
         if (Yii::app()->request->isPostRequest) {
             $model->attributes = $_POST['Endereco'];
             $model->idCliente = $cliente->idCliente;
+            $model->tipoEndereco = Endereco::TIPO_EXTRA;
             if ($model->save()) {
                 $this->refresh();
             }
