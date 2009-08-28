@@ -5,6 +5,7 @@
 </tr>
 <tr>
     <td width="121" align="left" valign="baseline">
+        <a href="<?php echo CHtml::normalizeUrl(array("/cliente/novoEndereco")); ?>"><strong>Adicionar endereço</strong></a><br/>
         <a href="<?php echo CHtml::normalizeUrl(array("/cliente/logout")); ?>"><strong>Sair</strong></a><br/>
     </td>
 </tr>

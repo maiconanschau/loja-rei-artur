@@ -82,4 +82,10 @@ class ClienteFisico extends CActiveRecord {
         $this->cpfCliente = preg_replace("/[^0-9]/","",$this->cpfCliente);
         return true;
     }
+	
+	public function beforeSave() {
+		Yii::import("application.extensions.TXGruppi.Util.CTXDate");
+		$this->nascimentoCliente = CTXDate::toSql($this->nascimentoCliente);
+		return true;
+	}
 }

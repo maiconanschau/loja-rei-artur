@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name; ?>
+<?php $this->pageTitle=Yii::app()->name; /*?>
 
 <h1>
 	Welcome, <?php echo Yii::app()->user->name; ?>!
@@ -41,3 +41,4 @@ If you have problems in accomplishing any of the above tasks,
 please read <a href="http://www.yiiframework.com/doc/">Yii documentation</a>
 or visit <a href="http://www.yiiframework.com/forum/">Yii forum</a> for help.
 </p>
+*/ ?>

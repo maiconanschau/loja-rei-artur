@@ -1212,3 +1212,12 @@ Stack trace:
 #3 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
 #4 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
 #5 {main} REQUEST_URI=/reiartur/index.php/site/contatoEnviado.html
+2009/08/28 10:18:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encotrar a ação "novoEndereco" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:439
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(262): CController->missingAction('novoEndereco')
+#1 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('novoEndereco')
+#2 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('cliente/novoEnd...')
+#3 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#4 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#5 {main} REQUEST_URI=/reiartur/index.php/cliente/novoEndereco.html
+2009/08/28 10:22:00 [error] [php] include(CTXEstados.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\web\htdocs\yii\framework\YiiBase.php:316) REQUEST_URI=/reiartur/index.php/cliente/novoEndereco.html
