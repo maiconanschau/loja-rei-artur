@@ -44,6 +44,30 @@ class ClienteController extends CController {
         $this->redirect(Yii::app()->homeUrl);
     }
 
+    public function actionNovoEndereco() {
+        CTXClientScript::registerScriptFile('jquery');
+        CTXClientScript::registerScriptFile('jquery.maskedinput');
+        CTXClientScript::registerScriptFile('jquery.numeric');
+
+        Yii::import('application.extensions.TXGruppi.Util.CTXEstados');
+
+        $model = new Endereco();
+        $cliente = Cliente::model()->findByAttributes(array('emailCliente'=>Yii::app()->user->id));
+        if (empty($cliente)) {
+            $this->actionLogout();
+        }
+
+        if (Yii::app()->request->isPostRequest) {
+            $model->attributes = $_POST['Endereco'];
+            $model->idCliente = $cliente->idCliente;
+            if ($model->save()) {
+                $this->refresh();
+            }
+        }
+
+        $this->render('novoEndereco',array('model'=>$model));
+    }
+
     public function actionFimCadastro() {
         $model = $this->loadCliente();
         $this->render('fimCadastro',array('model'=>$model));

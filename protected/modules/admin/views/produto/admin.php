@@ -12,7 +12,7 @@
         <th><?php echo $sort->link('nomeProduto'); ?></th>
         <th><?php echo $sort->link('pesoProduto'); ?></th>
         <th><?php echo $sort->link('precoProduto'); ?></th>
-        <th>Actions</th>
+        <th>Ações</th>
     </tr>
     <?php foreach($models as $n=>$model): ?>
     <tr class="<?php echo $n%2?'even':'odd';?>">

@@ -10,7 +10,7 @@
         <th><?php echo $sort->link('idCategoria'); ?></th>
         <th><?php echo $sort->link('nomeCategoria'); ?></th>
         <th><?php echo $sort->link('visivelCategoria'); ?></th>
-        <th>Actions</th>
+        <th>Ações</th>
     </tr>
     <?php foreach($models as $n=>$model): ?>
     <tr class="<?php echo $n%2?'even':'odd';?>">

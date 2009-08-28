@@ -16,7 +16,7 @@ class Endereco extends CActiveRecord {
  */
 
 const TIPO_PADRAO = 1;
-const TIPO_ENTREGA = 2;
+const TIPO_EXTRA = 2;
 
 /**
  * Returns the static model of the specified AR class.
@@ -36,7 +36,7 @@ const TIPO_ENTREGA = 2;
     public function getTipoOptions() {
         return array(
             self::TIPO_PADRAO=>"Padrão",
-            self::TIPO_ENTREGA=>"Entrega"
+            self::TIPO_EXTRA=>"Extra"
         );
     }
 
