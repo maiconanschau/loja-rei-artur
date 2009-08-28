@@ -19,10 +19,12 @@
         <td><?php echo CHtml::encode($model->visivelCategoria ? "Sim" : "Não"); ?></td>
         <td>
                 <?php echo CHtml::link('Editar',array('update','id'=>$model->idCategoria)); ?>
+                <?php if (count(Produto::model()->findByAttributes(array('idCategoria'=>$model->idCategoria))) == 0) : ?>
                 <?php echo CHtml::linkButton('Apagar',array(
                 'submit'=>'',
                 'params'=>array('command'=>'delete','id'=>$model->idCategoria),
                 'confirm'=>"Deseja apagar a categoria '{$model->nomeCategoria}'?")); ?>
+                <?php endif; ?>
         </td>
     </tr>
     <?php endforeach; ?>
