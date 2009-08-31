@@ -1227,3 +1227,24 @@ Stack trace:
 2009/08/28 20:03:43 [error] [php] include(D:\web\htdocs\reiartur\protected\modules\admin\models\FotoProduto.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\web\htdocs\yii\framework\YiiBase.php:313) REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/4/l/140/a/140/f/frame.html
 2009/08/28 20:03:48 [error] [php] include(D:\web\htdocs\reiartur\protected\modules\admin\models\FotoProduto.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\web\htdocs\yii\framework\YiiBase.php:313) REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/1/l/140/a/140/f/frame.html
 2009/08/28 20:04:54 [error] [php] include(D:\web\htdocs\reiartur\protected\modules\admin\models\FotoProduto.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\web\htdocs\yii\framework\YiiBase.php:313) REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/1/l/140/a/140/f/frame.html
+2009/08/31 19:11:32 [error] [php] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent by (output started at C:\xampp\htdocs\loja-rei-artur\index.php:1) (C:\xampp\htdocs\yii\framework\web\CHttpSession.php:102)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CModule.php(353): CHttpSession->init()
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(199): CWebApplication->getComponent()
+#2 C:\xampp\htdocs\yii\framework\web\auth\CWebUser.php(152): CWebApplication->getSession()
+#3 C:\xampp\htdocs\yii\framework\base\CModule.php(353): CWebUser->init()
+#4 C:\xampp\htdocs\yii\framework\base\CModule.php(91): CWebApplication->getComponent()
+#5 C:\xampp\htdocs\loja-rei-artur\themes\reiartur\views\layouts\main.php(56): CWebApplication->__get()
+#6 C:\xampp\htdocs\yii\framework\web\CBaseController.php(119): require()
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(88): SiteController->renderInternal()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(642): SiteController->renderFile()
+#9 C:\xampp\htdocs\loja-rei-artur\protected\controllers\SiteController.php(8): SiteController->render()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionIndex()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(278): SiteController->runAction()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(257): SiteController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): SiteController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\loja-rei-artur\index.php(10): CWebApplication->run()
+REQUEST_URI=/loja-rei-artur/
