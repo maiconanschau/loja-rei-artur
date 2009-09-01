@@ -58,7 +58,7 @@ class Cliente extends CActiveRecord {
         array('senhaCliente', 'compare', 'compareAttribute'=>'senha2Cliente', 'on'=>'create'),
         array('senha2Cliente', 'required', 'on'=>'create'),
         array('chamadoCliente','length','max'=>45),
-        array('tipoCliente, emailCliente, senhaCliente, chamadoCliente, newsletterCliente', 'required'),
+        array('tipoCliente, emailCliente, senhaCliente, chamadoCliente', 'required'),
         array('tipoCliente, telefoneCliente, celularCliente, newsletterCliente', 'numerical', 'integerOnly'=>true),
         );
     }
