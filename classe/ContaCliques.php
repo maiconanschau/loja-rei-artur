@@ -9,5 +9,12 @@ $contar->setFieldId("idProduto");
 $contar->setValueId("$codigo");
 
 $contar->update();
- // sei lah ... pesquisando
+
+/*$redirect = new classe_produto();
+$url = $redirect->getUrlProduto($codigo);
+
+header("Location: $url");
+
+
+ sei lah ... pesquisando*/
 ?>
