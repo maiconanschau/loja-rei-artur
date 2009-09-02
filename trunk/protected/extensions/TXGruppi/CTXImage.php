@@ -77,13 +77,13 @@ class CTXImage {
             $newHeight = $options['height'];
         } elseif ($options['force'] == 'frame') {
             $bOption = $options['width'] > $options['height'] ? $options['width'] : $options['height'];
-            $sOption = $options['width'] < $options['height'] ? $options['width'] : $options['height'];
+            //$sOption = $options['width'] < $options['height'] ? $options['width'] : $options['height'];
             if ($this->image['width'] > $this->image['height']) {
-                $newWidth = $bOption;
-                $newHeight = $this->percentage($newWidth, $this->image['width'], $this->image['height']);
-            } elseif ($this->image['width'] < $this->image['height']) {
                 $newHeight = $bOption;
                 $newWidth = $this->percentage($newHeight, $this->image['height'], $this->image['width']);
+            } elseif ($this->image['width'] < $this->image['height']) {
+                $newWidth = $bOption;
+                $newHeight = $this->percentage($newWidth, $this->image['width'], $this->image['height']);
             } else {
                 $newWidth = $newHeight = $bOption;
             }
@@ -140,12 +140,12 @@ class CTXImage {
     }
 
     public function join(TXImage $image,$alignH = 'R',$alignV = 'B') {
-		$mWidth = imagesx($image->gd);
+        $mWidth = imagesx($image->gd);
         $mHeight = imagesy($image->gd);
         $width = imagesx($this->gd);
         $height = imagesy($this->gd);
 
-		if (empty($mWidth) || empty($mHeight) || empty($width)|| empty($height)) return false;
+        if (empty($mWidth) || empty($mHeight) || empty($width)|| empty($height)) return false;
 
         $alignH = strtoupper($alignH);
         $alignV = strtoupper($alignV);
@@ -167,7 +167,7 @@ class CTXImage {
         }
 
         if (!imagecopy($this->gd, $image->gd, $x, $y, 0, 0, $mWidth, $mHeight)) return false;
-		return true;
+        return true;
     }
 
     public function display() {

@@ -237,3 +237,7 @@ div.item
 a img {
     border: 0px;
 }
+
+.produtoHome {
+    text-align:     center;
+}

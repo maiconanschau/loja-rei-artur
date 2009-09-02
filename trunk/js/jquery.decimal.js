@@ -25,7 +25,7 @@
 				
 				if (key == 8) {
 					value = value.substring(0,value.length-1);
-					if (value.length <= 2) {
+					if (value.length <= quantCasas) {
 						value = new Array(quantCasas+1-value.length).join('0') + value;
 						value = '0' + separador + value;
 						$(this).val(value);

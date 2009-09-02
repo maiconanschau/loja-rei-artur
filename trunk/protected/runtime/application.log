@@ -1362,3 +1362,179 @@ Stack trace:
 #6 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
 #7 C:\xampp\htdocs\loja-rei-artur\index.php(10): CWebApplication->run()
 REQUEST_URI=/loja-rei-artur/index.php/fotoProduto/exibir/i/4/l/140/a/140/f/frame.html
+2009/09/01 20:41:39 [error] [php] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at D:\web\htdocs\reiartur\protected\controllers\SiteController.php:17) (D:\web\htdocs\yii\framework\web\CHttpSession.php:102) REQUEST_URI=/reiartur/
+2009/09/01 20:43:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encotrar a ação "index" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:439
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(262): CController->missingAction('')
+#1 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('')
+#2 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('site')
+#3 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#4 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#5 {main} REQUEST_URI=/reiartur/index.php/site.html
+2009/09/01 20:45:09 [error] [php] Missing argument 1 for CController::render(), called in D:\web\htdocs\reiartur\protected\controllers\SiteController.php on line 10 and defined (D:\web\htdocs\yii\framework\web\CController.php:638) REQUEST_URI=/reiartur/index.php/site.html
+2009/09/01 20:57:52 [error] [exception.CException] exception 'CException' with message 'SiteController não pôde encontrar a visão "home" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:710
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(640): CController->renderPartial('home', NULL, true)
+#1 D:\web\htdocs\reiartur\protected\controllers\SiteController.php(10): CController->render('home')
+#2 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#3 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#4 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('')
+#7 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('site')
+#8 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#9 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#10 {main} REQUEST_URI=/reiartur/index.php/site.html
+2009/09/01 21:12:50 [error] [php] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at D:\web\htdocs\reiartur\protected\controllers\SiteController.php:18) (D:\web\htdocs\yii\framework\web\CHttpSession.php:102) REQUEST_URI=/reiartur/index.php/site.html
+2009/09/01 21:25:24 [error] [php] array_shift() expects parameter 1 to be array, null given (D:\web\htdocs\reiartur\protected\controllers\SiteController.php:18) REQUEST_URI=/reiartur/index.php
+2009/09/01 22:05:17 [error] [system.db.CDbCommand] Error in querying SQL: SELECT `Produto`.`idProduto` AS `t0_c0`, t1.`idProduto` AS `t1_c0`, t1.`idFotoProduto` AS `t1_c1`, t1.`arquivoFotoProduto` AS `t1_c2`, t1.`visivelFotoProduto` AS `t1_c3` FROM `Produto` LEFT OUTER JOIN `FotoProduto` t1 ON (t1.`idProduto`=`Produto`.`idProduto`) WHERE (`Produto`.`idProduto`=2) AND (t1.visivelFoto = 1)
+2009/09/01 22:05:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't1.visivelFoto' in 'where clause'' in D:\web\htdocs\yii\framework\db\CDbCommand.php:318
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\CDbCommand.php(237): CDbCommand->queryInternal('fetchAll', 2)
+#1 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(562): CDbCommand->queryAll()
+#2 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(454): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(210): CJoinElement->lazyFind(Object(Produto))
+#4 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(543): CActiveFinder->lazyFind(Object(Produto))
+#5 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(416): CActiveRecord->getRelated('fotosVisiveis')
+#6 D:\web\htdocs\reiartur\protected\controllers\SiteController.php(17): CActiveRecord->__get('fotosVisiveis')
+#7 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#8 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#10 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('')
+#12 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('')
+#13 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#14 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#15 {main} REQUEST_URI=/reiartur/index.php
+2009/09/01 22:05:28 [error] [system.db.CDbCommand] Error in querying SQL: SELECT `Produto`.`idProduto` AS `t0_c0`, t1.`idProduto` AS `t1_c0`, t1.`idFotoProduto` AS `t1_c1`, t1.`arquivoFotoProduto` AS `t1_c2`, t1.`visivelFotoProduto` AS `t1_c3` FROM `Produto` LEFT OUTER JOIN `FotoProduto` t1 ON (t1.`idProduto`=`Produto`.`idProduto`) WHERE (`Produto`.`idProduto`=2) AND (?.visivelFoto = 1)
+2009/09/01 22:05:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?.visivelFoto = 1)' at line 1' in D:\web\htdocs\yii\framework\db\CDbCommand.php:318
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\CDbCommand.php(237): CDbCommand->queryInternal('fetchAll', 2)
+#1 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(562): CDbCommand->queryAll()
+#2 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(454): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(210): CJoinElement->lazyFind(Object(Produto))
+#4 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(543): CActiveFinder->lazyFind(Object(Produto))
+#5 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(416): CActiveRecord->getRelated('fotosVisiveis')
+#6 D:\web\htdocs\reiartur\protected\controllers\SiteController.php(17): CActiveRecord->__get('fotosVisiveis')
+#7 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#8 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#10 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('')
+#12 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('')
+#13 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#14 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#15 {main} REQUEST_URI=/reiartur/index.php
+2009/09/01 22:05:33 [error] [system.db.CDbCommand] Error in querying SQL: SELECT `Produto`.`idProduto` AS `t0_c0`, t1.`idProduto` AS `t1_c0`, t1.`idFotoProduto` AS `t1_c1`, t1.`arquivoFotoProduto` AS `t1_c2`, t1.`visivelFotoProduto` AS `t1_c3` FROM `Produto` LEFT OUTER JOIN `FotoProduto` t1 ON (t1.`idProduto`=`Produto`.`idProduto`) WHERE (`Produto`.`idProduto`=2) AND (visivelFoto = 1)
+2009/09/01 22:05:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'visivelFoto' in 'where clause'' in D:\web\htdocs\yii\framework\db\CDbCommand.php:318
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\CDbCommand.php(237): CDbCommand->queryInternal('fetchAll', 2)
+#1 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(562): CDbCommand->queryAll()
+#2 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(454): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(210): CJoinElement->lazyFind(Object(Produto))
+#4 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(543): CActiveFinder->lazyFind(Object(Produto))
+#5 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(416): CActiveRecord->getRelated('fotosVisiveis')
+#6 D:\web\htdocs\reiartur\protected\controllers\SiteController.php(17): CActiveRecord->__get('fotosVisiveis')
+#7 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#8 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#10 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('')
+#12 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('')
+#13 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#14 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#15 {main} REQUEST_URI=/reiartur/index.php
+2009/09/01 22:05:42 [error] [system.db.CDbCommand] Error in querying SQL: SELECT `Produto`.`idProduto` AS `t0_c0`, t1.`idProduto` AS `t1_c0`, t1.`idFotoProduto` AS `t1_c1`, t1.`arquivoFotoProduto` AS `t1_c2`, t1.`visivelFotoProduto` AS `t1_c3` FROM `Produto` LEFT OUTER JOIN `FotoProduto` t1 ON (t1.`idProduto`=`Produto`.`idProduto`) WHERE (`Produto`.`idProduto`=2) AND (t1.visivelFoto = 1)
+2009/09/01 22:05:42 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't1.visivelFoto' in 'where clause'' in D:\web\htdocs\yii\framework\db\CDbCommand.php:318
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\CDbCommand.php(237): CDbCommand->queryInternal('fetchAll', 2)
+#1 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(562): CDbCommand->queryAll()
+#2 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(454): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\web\htdocs\yii\framework\db\ar\CActiveFinder.php(210): CJoinElement->lazyFind(Object(Produto))
+#4 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(543): CActiveFinder->lazyFind(Object(Produto))
+#5 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(416): CActiveRecord->getRelated('fotosVisiveis')
+#6 D:\web\htdocs\reiartur\protected\controllers\SiteController.php(17): CActiveRecord->__get('fotosVisiveis')
+#7 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#8 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#10 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('')
+#12 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('')
+#13 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#14 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#15 {main} REQUEST_URI=/reiartur/index.php
+2009/09/01 22:44:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encotrar a ação "detalhes" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:439
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(262): CController->missingAction('detalhes')
+#1 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#2 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#3 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#4 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#5 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/id/3.html
+2009/09/01 22:47:38 [error] [exception.CException] exception 'CException' with message 'A propriedade "ProdutoController._model" não está definida.' in D:\web\htdocs\yii\framework\base\CComponent.php:120
+Stack trace:
+#0 D:\web\htdocs\reiartur\protected\controllers\ProdutoController.php(16): CComponent->__get('_model')
+#1 D:\web\htdocs\reiartur\protected\controllers\ProdutoController.php(8): ProdutoController->loadProduto()
+#2 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#3 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#4 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#7 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#8 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#9 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#10 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/id/3.html
+2009/09/01 23:19:16 [error] [exception.CException] exception 'CException' with message 'A propriedade "Produto.descrucaiCurtaProduto" não está definida.' in D:\web\htdocs\yii\framework\base\CComponent.php:120
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(418): CComponent->__get('descrucaiCurtaP...')
+#1 D:\web\htdocs\reiartur\protected\views\produto\detalhes.php(11): CActiveRecord->__get('descrucaiCurtaP...')
+#2 D:\web\htdocs\yii\framework\web\CBaseController.php(119): require('D:\web\htdocs\r...')
+#3 D:\web\htdocs\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web\htdocs\r...', Array, true)
+#4 D:\web\htdocs\yii\framework\web\CController.php(701): CBaseController->renderFile('D:\web\htdocs\r...', Array, true)
+#5 D:\web\htdocs\yii\framework\web\CController.php(640): CController->renderPartial('detalhes', Array, true)
+#6 D:\web\htdocs\reiartur\protected\controllers\ProdutoController.php(13): CController->render('detalhes', Array)
+#7 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#8 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#10 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#12 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#13 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#14 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#15 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/id/3.html
+2009/09/01 23:19:23 [error] [exception.CException] exception 'CException' with message 'A propriedade "Produto.descrucaoCurtaProduto" não está definida.' in D:\web\htdocs\yii\framework\base\CComponent.php:120
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(418): CComponent->__get('descrucaoCurtaP...')
+#1 D:\web\htdocs\reiartur\protected\views\produto\detalhes.php(11): CActiveRecord->__get('descrucaoCurtaP...')
+#2 D:\web\htdocs\yii\framework\web\CBaseController.php(119): require('D:\web\htdocs\r...')
+#3 D:\web\htdocs\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web\htdocs\r...', Array, true)
+#4 D:\web\htdocs\yii\framework\web\CController.php(701): CBaseController->renderFile('D:\web\htdocs\r...', Array, true)
+#5 D:\web\htdocs\yii\framework\web\CController.php(640): CController->renderPartial('detalhes', Array, true)
+#6 D:\web\htdocs\reiartur\protected\controllers\ProdutoController.php(13): CController->render('detalhes', Array)
+#7 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#8 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#10 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#12 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#13 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#14 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#15 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/id/3.html
+2009/09/01 23:23:09 [error] [exception.CException] exception 'CException' with message 'A propriedade "Produto.descricaoLonga" não está definida.' in D:\web\htdocs\yii\framework\base\CComponent.php:120
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\ar\CActiveRecord.php(418): CComponent->__get('descricaoLonga')
+#1 D:\web\htdocs\reiartur\protected\views\produto\detalhes.php(19): CActiveRecord->__get('descricaoLonga')
+#2 D:\web\htdocs\yii\framework\web\CBaseController.php(119): require('D:\web\htdocs\r...')
+#3 D:\web\htdocs\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web\htdocs\r...', Array, true)
+#4 D:\web\htdocs\yii\framework\web\CController.php(701): CBaseController->renderFile('D:\web\htdocs\r...', Array, true)
+#5 D:\web\htdocs\yii\framework\web\CController.php(640): CController->renderPartial('detalhes', Array, true)
+#6 D:\web\htdocs\reiartur\protected\controllers\ProdutoController.php(13): CController->render('detalhes', Array)
+#7 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#8 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#10 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#12 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#13 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#14 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#15 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/id/3.html
