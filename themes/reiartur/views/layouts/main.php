@@ -62,7 +62,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" bgcolor="#FFFFFF">
-                            <?php $this->widget('application.components.widgets.MenuCategorias'); ?>
+                                <?php $this->widget('application.components.widgets.MenuCategorias'); ?>
                         </td>
                     </tr>
                     <?php endif; ?>
@@ -73,9 +73,9 @@
                     <?php if (Yii::app()->user->id != 'admin') : ?>
                     <tr>
                         <td colspan="2" bgcolor="#CC9933">
-                            <?php if (Yii::app()->user->isGuest) : ?>
+                                <?php if (Yii::app()->user->isGuest) : ?>
                             <a href="<?php echo CHtml::normalizeUrl(array("/cliente/cadastro")); ?>"><strong>Cadastrar</strong></a><br/>
-                            <?php endif; ?>
+                                <?php endif; ?>
                             <a href="<?php echo CHtml::normalizeUrl(array("/site/contato")); ?>"><strong>Contato</strong></a><br/>
                             <a href="<?php echo CHtml::normalizeUrl(array("/admin")); ?>"><strong>Área Administrativa</strong></a>
                         </td>
@@ -85,7 +85,9 @@
                 <br />
 
             </div>
-            <div id="mainContent"><?php echo $content; ?><br/></div>
+            <div id="mainContent">
+                <?php echo $content; ?><br/>
+            </div>
             <div id="footer">
                 <p><?php echo Yii::app()->name; ?> Moda Masculina - Ternos e Acessórios<br />
                     Av. Rio Branco, 1897 loja 42<br />

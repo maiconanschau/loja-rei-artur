@@ -49,6 +49,7 @@ class Produto extends CActiveRecord {
     // class name for the relations automatically generated below.
         return array(
             'fotos'=>array(self::HAS_MANY,'FotoProduto','idProduto'),
+            'fotosVisiveis'=>array(self::HAS_MANY,'FotoProduto','idProduto','condition'=>'??.visivelFotoProduto = 1'),
             'categoria'=>array(self::BELONGS_TO,'CategoriaProduto','idCategoria'),
         );
     }
