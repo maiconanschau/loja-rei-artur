@@ -3,6 +3,7 @@
 <div class="produto">
     <div class="apresentacao">
         <ul class="fotos">
+
             <?php foreach ($fotos as $foto) : ?>
             <img src="<?php echo CHtml::normalizeUrl(array('/fotoProduto/exibir','i'=>$foto->idFotoProduto,'a'=>200,'l'=>150)); ?>" alt="Foto de <?php echo $produto->nomeProduto; ?>"/>
             <?php endforeach; ?>

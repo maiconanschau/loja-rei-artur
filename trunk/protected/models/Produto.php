@@ -68,4 +68,8 @@ class Produto extends CActiveRecord {
         'precoProduto'=>'Preço',
         );
     }
+
+
+
+
 }
