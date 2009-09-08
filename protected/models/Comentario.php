@@ -42,7 +42,14 @@ class Comentario extends CActiveRecord
 			array('allow','users'=>array('@'),),			
 		);
 	}
-        
+
+        public function getStatus()
+	{
+		return array(
+			self::STATUS_PENDENTE=>'Pendente',
+			self::STATUS_APROVADO=>'Aprovado',
+		);
+	}
 	
 	public function attributeLabels()
 	{
