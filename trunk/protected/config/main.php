@@ -63,5 +63,6 @@ return array(
 		'adminEmail'=>'txgruppi@gmail.com',
 		'md5Salt'=>'n7rfy238ofmo824fno384gnyeog9mer',
 		'imagePath'=>realpath(dirname(__FILE__)."/../../uploads/images"),
+		'basePath'=>realpath(dirname(__FILE__).'/../..'),
 	),
 );

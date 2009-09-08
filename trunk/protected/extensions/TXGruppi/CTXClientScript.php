@@ -5,7 +5,7 @@ class CTXClientScript {
     public static function registerCssFile($name,$media = 'screen') {
         $url = Yii::app()->baseUrl;
         $url = "$url/css/$name.css";
-        Yii::app()->clientScript->registerCssFile($url,media);
+        Yii::app()->clientScript->registerCssFile($url,$media);
     }
 
     public static function registerScriptFile($name,$position = 0) {

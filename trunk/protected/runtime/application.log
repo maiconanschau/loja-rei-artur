@@ -1538,3 +1538,437 @@ Stack trace:
 #13 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
 #14 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
 #15 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/id/3.html
+2009/09/08 12:59:51 [error] [exception.CException] exception 'CException' with message 'A propriedade "ProdutoController.cliquesProduto" não está definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:120
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(20): CComponent->__get('cliquesProduto')
+#1 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(11): ProdutoController->clique()
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#10 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/2.html
+2009/09/08 13:00:52 [error] [exception.CException] exception 'CException' with message 'A propriedade "ProdutoController.cliquesProduto" não está definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:120
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(20): CComponent->__get('cliquesProduto')
+#1 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(11): ProdutoController->clique()
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#10 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/5.html
+2009/09/08 15:04:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:40
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(13): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-btn-close.gif
+2009/09/08 15:04:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:40
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(13): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-ico-loading.gif
+2009/09/08 15:04:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:40
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(13): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-blank.gif
+2009/09/08 15:07:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-btn-close.gif
+2009/09/08 15:07:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-ico-loading.gif
+2009/09/08 15:07:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-blank.gif
+2009/09/08 15:08:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-btn-close.gif
+2009/09/08 15:08:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-ico-loading.gif
+2009/09/08 15:08:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-blank.gif
+2009/09/08 15:08:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-btn-next.gif
+2009/09/08 15:08:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-btn-prev.gif
+2009/09/08 15:08:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-btn-close.gif
+2009/09/08 15:08:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-ico-loading.gif
+2009/09/08 15:08:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(16): ProdutoController->loadProduto()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/images/lightbox-blank.gif
+2009/09/08 15:35:16 [error] [php] Missing argument 1 for CTXImage::loadImage(), called in C:\xampp\htdocs\reiartur\protected\controllers\FotoProdutoController.php on line 21 and defined (C:\xampp\htdocs\reiartur\protected\extensions\TXGruppi\CTXImage.php:15)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(278): FotoProdutoController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(257): FotoProdutoController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): FotoProdutoController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/12/a/200/l/150/zoom/1.html
+2009/09/08 15:35:16 [error] [php] Missing argument 1 for CTXImage::loadImage(), called in C:\xampp\htdocs\reiartur\protected\controllers\FotoProdutoController.php on line 21 and defined (C:\xampp\htdocs\reiartur\protected\extensions\TXGruppi\CTXImage.php:15)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(278): FotoProdutoController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(257): FotoProdutoController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): FotoProdutoController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/11/a/200/l/150/zoom/1.html
+2009/09/08 15:39:50 [error] [php] Argument 1 passed to CTXImage::join() must be an instance of TXImage, instance of CTXImage given, called in C:\xampp\htdocs\reiartur\protected\controllers\FotoProdutoController.php on line 22 and defined (C:\xampp\htdocs\reiartur\protected\extensions\TXGruppi\CTXImage.php:142)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(278): FotoProdutoController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(257): FotoProdutoController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): FotoProdutoController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/12/a/200/l/150/zoom/1.html
+2009/09/08 15:39:50 [error] [php] Argument 1 passed to CTXImage::join() must be an instance of TXImage, instance of CTXImage given, called in C:\xampp\htdocs\reiartur\protected\controllers\FotoProdutoController.php on line 22 and defined (C:\xampp\htdocs\reiartur\protected\extensions\TXGruppi\CTXImage.php:142)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(278): FotoProdutoController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(257): FotoProdutoController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): FotoProdutoController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/11/a/200/l/150/zoom/1.html
+2009/09/08 15:39:56 [error] [php] Argument 1 passed to CTXImage::join() must be an instance of TXImage, instance of CTXImage given, called in C:\xampp\htdocs\reiartur\protected\controllers\FotoProdutoController.php on line 22 and defined (C:\xampp\htdocs\reiartur\protected\extensions\TXGruppi\CTXImage.php:142)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(278): FotoProdutoController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(257): FotoProdutoController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): FotoProdutoController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/11/a/200/l/150/zoom/1.html
+2009/09/08 15:40:15 [error] [php] imagesx() expects parameter 1 to be resource, null given (C:\xampp\htdocs\reiartur\protected\extensions\TXGruppi\CTXImage.php:143)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): FotoProdutoController->actionExibir()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(278): FotoProdutoController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(257): FotoProdutoController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): FotoProdutoController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/fotoProduto/exibir/i/11/a/200/l/150/zoom/1.html
+2009/09/08 17:03:58 [error] [php] include(BuscaMenu.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:324)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(138): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(153): SiteController->createWidget()
+#2 C:\xampp\htdocs\reiartur\themes\reiartur\views\layouts\main.php(60): SiteController->widget()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(119): require()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(88): SiteController->renderInternal()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(642): SiteController->renderFile()
+#6 C:\xampp\htdocs\reiartur\protected\controllers\SiteController.php(26): SiteController->render()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(278): SiteController->runAction()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(257): SiteController->runActionWithFilters()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): SiteController->run()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/site.html
+2009/09/08 17:04:08 [error] [php] include(BuscaMenu.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:324)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(138): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(153): SiteController->createWidget()
+#2 C:\xampp\htdocs\reiartur\themes\reiartur\views\layouts\main.php(60): SiteController->widget()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(119): require()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(88): SiteController->renderInternal()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(642): SiteController->renderFile()
+#6 C:\xampp\htdocs\reiartur\protected\controllers\SiteController.php(26): SiteController->render()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(278): SiteController->runAction()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(257): SiteController->runActionWithFilters()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): SiteController->run()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/site.html
+2009/09/08 17:06:28 [error] [system.db.CDbCommand] Error in querying SQL: SELECT * FROM `CategoriaProduto` WHERE visivelCategoriaProduto = 1 ORDER BY nomeCategoriaProduto
+2009/09/08 17:06:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'visivelCategoriaProduto' in 'where clause'' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:322
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(241): CDbCommand->queryInternal('fetchAll', 2)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1407): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1450): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\reiartur\protected\components\widgets\BuscaMenu.php(8): CActiveRecord->findAll(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(154): BuscaMenu->run()
+#5 C:\xampp\htdocs\reiartur\themes\reiartur\views\layouts\main.php(60): CBaseController->widget('application.com...')
+#6 C:\xampp\htdocs\yii\framework\web\CBaseController.php(119): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(642): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\reiartur\protected\controllers\SiteController.php(26): CController->render('home', Array)
+#10 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('site')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#18 {main} REQUEST_URI=/reiartur/index.php/site.html
+2009/09/08 17:11:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "produtos/busca".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produtos/busca')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#3 {main} REQUEST_URI=/reiartur/index.php/produtos/busca.html
+2009/09/08 17:11:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "produtos/busca".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produtos/busca')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#3 {main} REQUEST_URI=/reiartur/index.php/produtos/busca.html
+2009/09/08 17:17:25 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:71)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(113): renderAttributes()
+#1 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(993): tag()
+#2 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(514): inputField()
+#3 C:\xampp\htdocs\reiartur\protected\components\widgets\views\buscaMenu.php(10): textField()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(123): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(88): BuscaMenu->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CWidget.php(197): BuscaMenu->renderFile()
+#7 C:\xampp\htdocs\reiartur\protected\components\widgets\BuscaMenu.php(14): BuscaMenu->render()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(154): BuscaMenu->run()
+#9 C:\xampp\htdocs\reiartur\themes\reiartur\views\layouts\main.php(60): SiteController->widget()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(119): require()
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(88): SiteController->renderInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(642): SiteController->renderFile()
+#13 C:\xampp\htdocs\reiartur\protected\controllers\SiteController.php(26): SiteController->render()
+#14 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): SiteController->actionHome()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(278): SiteController->runAction()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(257): SiteController->runActionWithFilters()
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): SiteController->run()
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/site.html
+2009/09/08 17:48:39 [error] [exception.CException] exception 'CException' with message 'ProdutoController não pôde encontrar a visão "produtoHome" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:710
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(37): CController->renderPartial('produtoHome', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionBusca()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('busca')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/busca')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/busca.html?q=prod&c=0
+2009/09/08 17:53:16 [error] [exception.CException] exception 'CException' with message 'ProdutoController não pôde encontrar a visão "site/produtoHome" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:710
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(37): CController->renderPartial('site/produtoHom...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionBusca()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('busca')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/busca')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/busca.html?q=prod&c=0
+2009/09/08 17:53:30 [error] [exception.CException] exception 'CException' with message 'ProdutoController não pôde encontrar a visão "site/produtoHome" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:710
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(37): CController->renderPartial('site/produtoHom...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionBusca()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('busca')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/busca')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/busca.html?q=prod&c=0
+2009/09/08 17:53:45 [error] [exception.CException] exception 'CException' with message 'ProdutoController não pôde encontrar a visão "site.produtoHome" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:710
+Stack trace:
+#0 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(37): CController->renderPartial('site.produtoHom...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionBusca()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('busca')
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/busca')
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#9 {main} REQUEST_URI=/reiartur/index.php/produto/busca.html?q=prod&c=0
+2009/09/08 17:55:17 [error] [php] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php:43) (C:\xampp\htdocs\yii\framework\web\CHttpSession.php:102)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CModule.php(353): CHttpSession->init()
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(199): CWebApplication->getComponent()
+#2 C:\xampp\htdocs\yii\framework\web\auth\CWebUser.php(152): CWebApplication->getSession()
+#3 C:\xampp\htdocs\yii\framework\base\CModule.php(353): CWebUser->init()
+#4 C:\xampp\htdocs\yii\framework\base\CModule.php(91): CWebApplication->getComponent()
+#5 C:\xampp\htdocs\reiartur\themes\reiartur\views\layouts\main.php(56): CWebApplication->__get()
+#6 C:\xampp\htdocs\yii\framework\web\CBaseController.php(119): require()
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(88): ProdutoController->renderInternal()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(642): ProdutoController->renderFile()
+#9 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(45): ProdutoController->render()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionBusca()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(278): ProdutoController->runAction()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(257): ProdutoController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): ProdutoController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\reiartur\index.php(10): CWebApplication->run()
+REQUEST_URI=/reiartur/index.php/produto/busca.html?q=prod&c=0
+2009/09/08 18:38:07 [error] [system.db.CDbCommand] Error in querying SQL: SELECT COUNT(*) FROM `Produto` WHERE (nomeProduto LIKE '%prod%' OR descricaoCurtaProduto LIKE '%prod%' OR descricaoLongaProduto LIKE '%prod%')idCategoria = '6' ORDER BY cliquesProduto DESC, nomeProduto ASC
+2009/09/08 18:38:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'idCategoria = '6' ORDER BY cliquesProduto DESC, nomeProduto ASC' at line 1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:322
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(266): CDbCommand->queryInternal('fetchColumn', 0)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1556): CDbCommand->queryScalar()
+#2 C:\xampp\htdocs\reiartur\protected\controllers\ProdutoController.php(24): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionBusca()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('busca')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/busca')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
+#11 {main} REQUEST_URI=/reiartur/index.php/produto/busca.html?q=prod&c=6

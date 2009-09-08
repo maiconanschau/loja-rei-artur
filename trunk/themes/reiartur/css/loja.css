@@ -174,36 +174,37 @@ ul#menutt a:hover span{
 }
 
 .descricaoCurta{
-    width:500px;
     padding:10px;
     text-align:justify;
     font-size:11px;
-   
-    }
+
+}
 
 .descricaoLonga{
-    width:500px;
     text-align:justify;
     padding:10px;
     font-size:12px;
-   
+
 }
 
 .foto{   
-   padding:5px;
-    
+    padding:5px;
+
 }
 
 .info{
-    padding:10px;
-    font-size:12px;
-    color:blue;
-    font-weight:bold;
+    padding:        10px;
+    font-size:      12px;
+    color:          blue;
+    font-weight:    bold;
+    float:          right;
+    width:          500px;
+    text-align:     center;
 }
 
 .info p{
     color:black;
-    }
+}
 
 .twoColHybLtHdr #footer {
     padding: 0 10px;
@@ -284,5 +285,30 @@ a img {
 }
 
 .produtoHome {
+    text-align:     center;
+}
+
+.fotos {
+    height:         210px;
+}
+
+.fotos ul, .fotos li {
+    height:         200px;
+}
+
+.carouselNav button {
+    margin:         0;
+    padding:        0;
+    border:         0;
+    background:     transparent;
+    font-size:      12px;
+    font-weight:    bold;
+}
+
+.carouselNav button.active {
+    color:          #888888;
+}
+
+#paginacao {
     text-align:     center;
 }

@@ -139,7 +139,7 @@ class CTXImage {
         return $op;
     }
 
-    public function join(TXImage $image,$alignH = 'R',$alignV = 'B') {
+    public function join(CTXImage $image,$alignH = 'R',$alignV = 'B') {
         $mWidth = imagesx($image->gd);
         $mHeight = imagesy($image->gd);
         $width = imagesx($this->gd);

@@ -57,6 +57,7 @@
                         </td>
                     </tr>
                     <?php if (Yii::app()->user->id != 'admin') : ?>
+                    <?php $this->widget('application.components.widgets.BuscaMenu'); ?>
                     <tr>
                         <td colspan="2" bgcolor="#CC9933"><strong>Categorias</strong></td>
                     </tr>
