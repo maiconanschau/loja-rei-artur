@@ -51,12 +51,11 @@ class Produto extends CActiveRecord {
             'fotos'=>array(self::HAS_MANY,'FotoProduto','idProduto'),
             'fotosVisiveis'=>array(self::HAS_MANY,'FotoProduto','idProduto','condition'=>'??.visivelFotoProduto = 1'),
             'categoria'=>array(self::BELONGS_TO,'CategoriaProduto','idCategoria'),
+            'comentarios'=>array(self::HAS_MANY, 'Comentario', 'idComentario', 'order'=>'??.dataCriacao'),
         );
     }
 
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
+    
     public function attributeLabels() {
         return array(
         'idProduto'=>'Id',
