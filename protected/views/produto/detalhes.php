@@ -7,9 +7,7 @@
             <img src="<?php echo CHtml::normalizeUrl(array('/fotoProduto/exibir','i'=>$foto->idFotoProduto,'a'=>200,'l'=>150)); ?>" alt="Foto de <?php echo $produto->nomeProduto; ?>"/>
             <?php endforeach; ?>
         </ul>
-        <div class="info">
-            <?php echo number_format($produto->precoProduto, 2,',','.'); ?>
-        </div>
+        
         <div class="descricaoCurta">
             <?php echo $produto->descricaoCurtaProduto; ?>
         </div>
@@ -19,4 +17,7 @@
             <?php echo $produto->descricaoLongaProduto; ?>
         </div>
     </div>
+    <div class="info">
+   <p>Por :</p> R$ <?php echo number_format($produto->precoProduto, 2,',','.'); ?>
+        </div>
 </div>
