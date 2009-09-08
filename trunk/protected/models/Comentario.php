@@ -4,7 +4,6 @@ class Comentario extends CActiveRecord
 {
 	const STATUS_PENDENTE=0;
 	const STATUS_APROVADO=1;
-
         
 
 	public static function model($className=__CLASS__)
