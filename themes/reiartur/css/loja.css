@@ -4,6 +4,7 @@
     padding:0;
     list-style:none;
 }
+
 body  {
     font: 100% Verdana, Arial, Helvetica, sans-serif;
     background: #666666;
@@ -311,4 +312,24 @@ a img {
 
 #paginacao {
     text-align:     center;
+}
+
+.buscasRecentes {
+    padding:        5px;
+}
+
+.buscasRecentes a:hover {
+    text-decoration:underline;
+}
+
+.listaComentarios .comentario {
+    border:         1px solid black;
+    padding:        2px;
+    margin:         5px;
+}
+
+.listaComentarios .comentario .data {
+    text-align:     right;
+    font-size:      10px;
+    font-style:     italic;
 }

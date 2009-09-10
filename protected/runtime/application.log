@@ -1972,3 +1972,21 @@ Stack trace:
 #9 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
 #10 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
 #11 {main} REQUEST_URI=/reiartur/index.php/produto/busca.html?q=prod&c=6
+2009/09/09 18:30:09 [error] [exception.CException] exception 'CException' with message 'ProdutoController não pôde encontrar a visão "/comentario/show" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:710
+Stack trace:
+#0 D:\web\htdocs\reiartur\protected\views\produto\detalhes.php(41): CController->renderPartial('/comentario/sho...', Array)
+#1 D:\web\htdocs\yii\framework\web\CBaseController.php(119): require('D:\web\htdocs\r...')
+#2 D:\web\htdocs\yii\framework\web\CBaseController.php(88): CBaseController->renderInternal('D:\web\htdocs\r...', Array, true)
+#3 D:\web\htdocs\yii\framework\web\CController.php(701): CBaseController->renderFile('D:\web\htdocs\r...', Array, true)
+#4 D:\web\htdocs\yii\framework\web\CController.php(640): CController->renderPartial('detalhes', Array, true)
+#5 D:\web\htdocs\reiartur\protected\controllers\ProdutoController.php(89): CController->render('detalhes', Array)
+#6 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionDetalhes()
+#7 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#8 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#9 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('detalhes')
+#11 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('produto/detalhe...')
+#12 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#13 D:\web\htdocs\reiartur\index.php(10): CApplication->run()
+#14 {main} REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/3.html
+2009/09/09 18:32:52 [error] [php] include(CTXDate.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\web\htdocs\yii\framework\YiiBase.php:316) REQUEST_URI=/reiartur/index.php/produto/detalhes/cliquesProduto/1/id/3.html
