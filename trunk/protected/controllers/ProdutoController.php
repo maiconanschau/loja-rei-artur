@@ -17,6 +17,11 @@ class ProdutoController extends CController {
         $table = null;
 
         if (!empty($termo)) {
+            CTXSession::open();
+
+            if (!isset($_SESSION['Produto']['busca']['termos'])) $_SESSION['Produto']['busca']['termos'] = array();
+            if (!in_array($termo, $_SESSION['Produto']['busca']['termos'])) $_SESSION['Produto']['busca']['termos'][] = $termo;
+
             $criteria = new CDbCriteria();
             $criteria->condition = "(nomeProduto LIKE '%$termo%' OR descricaoCurtaProduto LIKE '%$termo%' OR descricaoLongaProduto LIKE '%$termo%')".($categoria == 0 ? '' : " AND idCategoria = '$categoria'");
             $criteria->order = 'cliquesProduto DESC, nomeProduto ASC';
@@ -51,14 +56,37 @@ class ProdutoController extends CController {
 
         CTXClientScript::registerCssFile('jquery.lightbox');
 
+        $cliente = Cliente::model()->findByAttributes(array('emailCliente'=>Yii::app()->user->id));
+
         $produto = $this->loadProduto();
         //$produto = $this->clique();
 
         $produto->cliquesProduto++; // Adiciona um clique ao produto
         $produto->save(); // Salva o novo clique no banco
 
+        $comentarios = Comentario::model()->findAll(array('condition'=>"idProduto = {$produto->idProduto}",'order'=>'dataComentario DESC'));
+
+        if (!Yii::app()->user->isGuest && Yii::app()->user->id != 'admin') {
+            $model = new Comentario();
+
+            if (isset($_POST['Comentario'])) {
+                $model->attributes = $_POST['Comentario'];
+
+                $model->idProduto = $produto->idProduto;
+                $model->idCliente = $cliente->idCliente;
+
+                if ($model->save()) {
+                    $this->refresh();
+                }
+            }
+
+            $comentario = $this->renderPartial('/comentario/create', array('model'=>$model), true);
+        } else {
+            $comentario = "";
+        }
+
         $fotos = $produto->fotosVisiveis;
-        $this->render('detalhes',array('produto'=>$produto,'fotos'=>$fotos));
+        $this->render('detalhes',array('produto'=>$produto,'fotos'=>$fotos,'comentario'=>$comentario,'comentarios'=>$comentarios));
     }
 
     /*

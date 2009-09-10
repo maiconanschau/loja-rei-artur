@@ -1,6 +1,14 @@
 <?php
 class BuscaMenu extends CWidget {
     public function run() {
+        CTXSession::open();
+
+        if (isset($_SESSION['Produto']['busca']['termos'])) {
+            $termos = $_SESSION['Produto']['busca']['termos'];
+        } else {
+            $termos = array();
+        }
+
         if (Yii::app()->user->id == 'admin') {
             return;
         }
@@ -11,6 +19,6 @@ class BuscaMenu extends CWidget {
             $categorias[$v->idCategoria] = $v->nomeCategoria;
         }
 
-        $this->render('buscaMenu',array('model'=>$model,'categorias'=>$categorias));
+        $this->render('buscaMenu',array('model'=>$model,'categorias'=>$categorias,'termos'=>$termos));
     }
 }
