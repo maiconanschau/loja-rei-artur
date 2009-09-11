@@ -35,14 +35,11 @@ class PerguntaQuestionarioController extends CController {
         $this->render('create',array('model'=>$model));
     }
 
-    public function actionUpdate() {
-
-    }
-
     public function actionAdmin() {
         $this->processAdminCommand();
 
         $criteria=new CDbCriteria;
+        $criteria->condition = "ativoPergunta = 1";
 
         $pages=new CPagination(PerguntaQuestionario::model()->count($criteria));
         $pages->pageSize=self::PAGE_SIZE;
@@ -72,7 +69,9 @@ class PerguntaQuestionarioController extends CController {
 
     protected function processAdminCommand() {
         if(isset($_POST['command'], $_POST['id']) && $_POST['command']==='delete') {
-            $this->loadPerguntaQuestionario($_POST['id'])->delete();
+            $pergunta = $this->loadPerguntaQuestionario($_POST['id']);
+            $pergunta->ativoPergunta = 0;
+            $pergunta->save();
             $this->refresh();
         }
     }

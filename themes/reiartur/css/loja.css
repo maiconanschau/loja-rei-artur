@@ -333,3 +333,8 @@ a img {
     font-size:      10px;
     font-style:     italic;
 }
+
+.listaComentarios .comentario .acoes a {
+    color:          blue;
+    font-size:      10px;
+}

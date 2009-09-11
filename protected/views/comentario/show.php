@@ -2,6 +2,6 @@
 <div class="comentario">
     <?php echo nl2br($model->conteudoComentario); ?>
     <div class="data">
-        <?php echo CTXDate::toDate($model->dataComentario); ?> - por <?php echo $model->cliente->tipoCliente == Cliente::TIPO_FISICO ? $model->cliente->clienteFisico->nomeCliente : $model->cliente->clienteJuridico->razaoSocialCliente; ?>
+        <?php echo CTXDate::toDate($model->dataComentario); ?> - por <?php echo CHtml::encode($model->cliente->tipoCliente == Cliente::TIPO_FISICO ? $model->cliente->clienteFisico->nomeCliente : $model->cliente->clienteJuridico->razaoSocialCliente); ?>
     </div>
 </div>

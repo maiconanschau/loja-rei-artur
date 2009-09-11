@@ -51,7 +51,8 @@ class Produto extends CActiveRecord {
             'fotos'=>array(self::HAS_MANY,'FotoProduto','idProduto'),
             'fotosVisiveis'=>array(self::HAS_MANY,'FotoProduto','idProduto','condition'=>'??.visivelFotoProduto = 1'),
             'categoria'=>array(self::BELONGS_TO,'CategoriaProduto','idCategoria'),
-            'comentarios'=>array(self::HAS_MANY, 'Comentario', 'idComentario', 'order'=>'??.dataCriacao'),
+            'comentarios'=>array(self::HAS_MANY, 'Comentario', 'idProduto', 'order'=>'??.dataComentario'),
+            'comentariosPendentes'=>array(self::HAS_MANY, 'Comentario', 'idProduto','condition'=>'??.statusComentario = 0'),
         );
     }
 

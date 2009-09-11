@@ -6,7 +6,9 @@ class ClienteLogin extends CWidget {
             if (Yii::app()->user->id == 'admin') {
                 $this->render('adminLogout');
             } else {
-                $this->render('clienteLogout');
+                $cliente = Cliente::model()->findByAttributes(array('emailCliente'=>Yii::app()->user->id));
+                $quest = count(QuestionarioCliente::model()->findAllByAttributes(array('idCliente'=>$cliente->idCliente))) == 0;
+                $this->render('clienteLogout',array('quest'=>$quest));
             }
             return;
         }

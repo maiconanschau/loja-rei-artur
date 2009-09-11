@@ -35,16 +35,16 @@
             <?php echo $produto->descricaoLongaProduto; ?>
         </div>
     </div>
-    <?php if (!empty($comentario)) : ?>
     <div class="comentarios">
         <div class="listaComentarios">
             <?php foreach ($comentarios as $v) $this->renderPartial('/comentario/show',array('model'=>$v)); ?>
         </div>
+        <?php if (!empty($comentario)) : ?>
         <div class="formComentario">
             <?php echo $comentario; ?>
         </div>
+        <?php endif; ?>
     </div>
-    <?php endif; ?>
 </div>
 <script type="text/javascript">
     $(document).ready(function(){

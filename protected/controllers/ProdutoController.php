@@ -79,10 +79,8 @@ class ProdutoController extends CController {
                     $this->refresh();
                 }
             }
-
+            
             $comentario = $this->renderPartial('/comentario/create', array('model'=>$model), true);
-        } else {
-            $comentario = "";
         }
 
         $fotos = $produto->fotosVisiveis;
