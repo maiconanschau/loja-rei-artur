@@ -19,23 +19,24 @@ class PerguntaQuestionarioController extends CController {
 
         $model=new PerguntaQuestionario;
 
-        $categorias = array();
-        $mCategorias = CategoriaProduto::model()->findAll(array('order'=>'nomeCategoria'));
-        foreach ($mCategorias as $v) {
-            $categorias[$v->idCategoria] = $v->nomeCategoria;
+        if(isset($_POST['PerguntaQuestionario'])) {
+            $model->attributes=$_POST['PerguntaQuestionario'];
+            $model->opcoesPergunta = $_POST['PerguntaQuestionario']['opcoesPergunta'];
+            if($model->save()) {
+                $opcoes = $model->getOpcoes();
+                foreach ($opcoes as $v) {
+                    $v->idPergunta = $model->idPergunta;
+                    $v->save();
+                }
+                $this->redirect(array('create'));
+            }
         }
 
-        if(isset($_POST['Produto'])) {
-            $model->attributes=$_POST['Produto'];
-            if($model->save())
-                $this->redirect(array('show','id'=>$model->idProduto));
-        }
-
-        $this->render('create',array('model'=>$model,'categorias'=>$categorias));
+        $this->render('create',array('model'=>$model));
     }
 
     public function actionUpdate() {
-        
+
     }
 
     public function actionAdmin() {
