@@ -10,6 +10,28 @@ class ProdutoController extends CController {
         $this->pageTitle = Yii::app()->name." - Produto";
     }
 
+    public function actionAprovarComentario() {
+        $comentario = $this->loadComentario();
+        $comentario->statusComentario = 1;
+        $comentario->save();
+        $this->redirect(array('comentario','id'=>$comentario->idProduto));
+    }
+
+    public function actionDeletarComentario() {
+        $comentario = $this->loadComentario();
+        $comentario->delete();
+        $this->redirect(array('comentario','id'=>$comentario->idProduto));
+    }
+
+    public function actionComentario() {
+        Yii::import('application.extensions.TXGruppi.Util.CTXDate');
+        $model = $this->loadProduto();
+
+        $comentarios = $model->comentariosPendentes;
+
+        $this->render('comentario',array('comentarios'=>$comentarios));
+    }
+
     public function actionShow() {
         $this->render('show',array('model'=>$this->loadProduto()));
     }
@@ -117,6 +139,16 @@ class ProdutoController extends CController {
         if($this->_model===null) {
             if($id!==null || isset($_GET['id']))
                 $this->_model=Produto::model()->findbyPk($id!==null ? $id : $_GET['id']);
+            if($this->_model===null)
+                throw new CHttpException(404,'The requested page does not exist.');
+        }
+        return $this->_model;
+    }
+
+    public function loadComentario($id=null) {
+        if($this->_model===null) {
+            if($id!==null || isset($_GET['id']))
+                $this->_model=Comentario::model()->findbyPk($id!==null ? $id : $_GET['id']);
             if($this->_model===null)
                 throw new CHttpException(404,'The requested page does not exist.');
         }

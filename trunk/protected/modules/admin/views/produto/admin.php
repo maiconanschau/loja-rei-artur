@@ -23,6 +23,7 @@
         <td><?php echo CHtml::encode($model->precoProduto); ?></td>
         <td>
                 <?php echo CHtml::link('Fotos',array('fotos','id'=>$model->idProduto)); ?>
+                <?php echo CHtml::link('Comentários',array('comentario','id'=>$model->idProduto)); ?>
                 <?php echo CHtml::link('Editar',array('update','id'=>$model->idProduto)); ?>
                 <?php echo CHtml::linkButton('Apagar',array(
                 'submit'=>'',

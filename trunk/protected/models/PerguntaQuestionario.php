@@ -17,6 +17,10 @@ class PerguntaQuestionario extends CActiveRecord {
     const TIPO_RADIO = 5;
 
     public $opcoesPergunta;
+    public $_fieldName;
+    public $_formMethod;
+    public $_options;
+    public $_value;
 
     /**
      * Returns the static model of the specified AR class.
@@ -38,8 +42,8 @@ class PerguntaQuestionario extends CActiveRecord {
         self::TIPO_TEXTFIELD=>'Campo de texto',
         self::TIPO_TEXTAREA=>'Caixa de texto',
         self::TIPO_SELECT=>'Lista de seleção',
-        self::TIPO_CHECKBOX=>'Caixa de seleção multipla',
-        self::TIPO_RADIO=>'Caixa de seleção unica',
+        self::TIPO_CHECKBOX=>'Campo de seleção multipla',
+        self::TIPO_RADIO=>'Campo de seleção unica',
         );
     }
 
@@ -56,7 +60,7 @@ class PerguntaQuestionario extends CActiveRecord {
         array('textoPergunta','length','max'=>255),
         array('textoPergunta, tipoPergunta', 'required'),
         array('tipoPergunta, ordemPergunta, ativoPergunta', 'numerical', 'integerOnly'=>true),
-        array('opcoesPergunta','opcaoValida'),
+        array('opcoesPergunta','opcaoValida','on'=>'save'),
         );
     }
 
@@ -101,5 +105,12 @@ class PerguntaQuestionario extends CActiveRecord {
             $v = $temp;
         }
         return $opcoes;
+    }
+
+    public function beforeValidate() {
+        if (empty($this->scenario)) {
+            $this->scenario = "save";
+        }
+        return true;
     }
 }

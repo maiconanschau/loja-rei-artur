@@ -105,3 +105,8 @@ div.yiiForm div.complex div
 {
     margin-left: 110px;
 }
+
+div.yiiForm div.optionList label {
+    float:      none;
+    display:    inline;
+}
