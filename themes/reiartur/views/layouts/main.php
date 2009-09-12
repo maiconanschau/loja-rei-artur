@@ -71,6 +71,7 @@
                     <tr>
                         <td colspan="2" bgcolor="#FFFFFF"><a href="#"></a></td>
                     </tr>
+                    <?php $this->widget('application.components.widgets.SugestaoProduto'); ?>
                     <?php if (Yii::app()->user->id != 'admin') : ?>
                     <tr>
                         <td colspan="2" bgcolor="#CC9933">

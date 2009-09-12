@@ -11,19 +11,27 @@ class ProdutoController extends CController {
     public function actionBusca() {
         $termo = CTXRequest::getParam('q');
         $categoria = CTXRequest::getParam('c');
+        $categoriaMenu = CTXRequest::getParam('categoria');
 
         $models = array();
         $pages = null;
         $table = null;
+        $modelCategoria = null;
 
-        if (!empty($termo)) {
+        if (!empty($termo) || !empty($categoriaMenu)) {
             CTXSession::open();
 
             if (!isset($_SESSION['Produto']['busca']['termos'])) $_SESSION['Produto']['busca']['termos'] = array();
             if (!in_array($termo, $_SESSION['Produto']['busca']['termos'])) $_SESSION['Produto']['busca']['termos'][] = $termo;
 
             $criteria = new CDbCriteria();
-            $criteria->condition = "(nomeProduto LIKE '%$termo%' OR descricaoCurtaProduto LIKE '%$termo%' OR descricaoLongaProduto LIKE '%$termo%')".($categoria == 0 ? '' : " AND idCategoria = '$categoria'");
+            if (!empty($termo)) {
+                $criteria->condition = "(nomeProduto LIKE '%$termo%' OR descricaoCurtaProduto LIKE '%$termo%' OR descricaoLongaProduto LIKE '%$termo%')".($categoria == 0 ? '' : " AND idCategoria = '$categoria'");
+            } elseif (!empty($categoriaMenu)) {
+                $criteria->condition = "idCategoria = '$categoriaMenu'";
+                $modelCategoria = CategoriaProduto::model()->findByPk($categoriaMenu);
+            }
+
             $criteria->order = 'cliquesProduto DESC, nomeProduto ASC';
 
             $pages = new CPagination(Produto::model()->count($criteria));
@@ -46,7 +54,7 @@ class ProdutoController extends CController {
                 }
             }
         }
-        $this->render('busca',array('termo'=>$termo,'models'=>$models,'pages'=>$pages,'tabelaProdutos'=>$table));
+        $this->render('busca',array('termo'=>$termo,'models'=>$models,'pages'=>$pages,'tabelaProdutos'=>$table,'categoria'=>$modelCategoria));
     }
 
     public function actionDetalhes() {

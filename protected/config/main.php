@@ -47,8 +47,7 @@ return array(
 			'urlFormat'=>'path',
 			'urlSuffix'=>'.html',
                         'rules'=>array(
-                            'pagina/<permalink>'=>'site/pagina',
-                            'album/<permalink>'=>'site/album',
+                            'categoria/<categoria>'=>'produto/busca'
                         ),
 		),
                 'authManager'=>array(
