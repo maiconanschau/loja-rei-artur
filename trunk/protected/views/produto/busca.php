@@ -1,4 +1,4 @@
-<h2>Busca</h2>
+<h2><?php echo empty($categoria) ? 'Busca' : 'Categoria '.$categoria->nomeCategoria; ?></h2>
 <br/>
 <?php if (count($models)) : ?>
 <?php echo $tabelaProdutos; ?>

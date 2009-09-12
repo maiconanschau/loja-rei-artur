@@ -338,3 +338,7 @@ a img {
     color:          blue;
     font-size:      10px;
 }
+
+.sugestaoProduto .preco {
+    padding:        0px;
+}

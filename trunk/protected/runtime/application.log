@@ -3395,3 +3395,6 @@ Stack trace:
 #3 C:\xampp\htdocs\yii\framework\base\CApplication.php(134): CWebApplication->processRequest()
 #4 C:\xampp\htdocs\reiartur\index.php(10): CApplication->run()
 #5 {main} REQUEST_URI=/reiartur/index.php/admin/produto/aprovarcomentario/id/7.html
+2009/09/12 08:37:07 [error] [php] Invalid argument supplied for foreach() (D:\web\htdocs\yii\framework\web\helpers\CHtml.php:1597) REQUEST_URI=/reiartur/
+2009/09/12 08:46:15 [error] [php] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at D:\web\htdocs\reiartur\protected\controllers\ProdutoController.php:15) (D:\web\htdocs\yii\framework\web\CHttpSession.php:102) REQUEST_URI=/reiartur/index.php/categoria/1.html
+2009/09/12 08:47:03 [error] [php] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at D:\web\htdocs\reiartur\protected\controllers\ProdutoController.php:15) (D:\web\htdocs\yii\framework\web\CHttpSession.php:102) REQUEST_URI=/reiartur/index.php/categoria/1.html
