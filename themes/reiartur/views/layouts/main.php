@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><?php echo $this->pageTitle; ?></title>
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/form.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/loja.css" />
         <style type="text/css">
+         <!--[if IE]>
             /* place css fixes for all versions of IE in this conditional comment */
             .twoColHybLtHdr #sidebar1 { padding-top: 30px; }
             .twoColHybLtHdr #mainContent { zoom: 1; padding-top: 15px; }
