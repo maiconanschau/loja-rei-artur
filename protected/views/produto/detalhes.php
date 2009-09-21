@@ -4,6 +4,9 @@
     <div class="apresentacao">
         <div class="info">
             <p>Por :</p> R$ <?php echo number_format($produto->precoProduto, 2,',','.'); ?>
+            <div class="comprar">
+                <?php echo CHtml::link("Adicionar ao carrinho", array("/carrinho/adicionar",'id'=>$produto->idProduto)); ?>
+            </div>
         </div>
 
         <div class="fotos">

@@ -53,6 +53,7 @@
             </div>
             <div id="sidebar1">
                 <table width="200" border="0" cellspacing="2" cellpadding="2">
+                    <?php $this->widget('application.components.widgets.Carrinho'); ?>
                     <tr>
                         <td colspan="2" bgcolor="#CC9933">
                             <a href="<?php echo CHtml::normalizeUrl(Yii::app()->user->id == 'admin' ? array('/admin') : array('/site')); ?>"><strong>Home</strong></a><br/>
