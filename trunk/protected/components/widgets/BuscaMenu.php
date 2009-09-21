@@ -9,6 +9,10 @@ class BuscaMenu extends CWidget {
             $termos = array();
         }
 
+        foreach ($termos as $k=>$v) {
+            if (empty($v)) unset($termos[$k]);
+        }
+
         if (Yii::app()->user->id == 'admin') {
             return;
         }

@@ -171,7 +171,6 @@ ul#menutt a:hover span{
 .preco{
     font-size:10px;
     color:blue;
-    padding-bottom:30px;
 }
 
 .descricaoCurta{
@@ -287,6 +286,7 @@ a img {
 
 .produtoHome {
     text-align:     center;
+    padding-bottom:30px;
 }
 
 .fotos {
@@ -341,4 +341,46 @@ a img {
 
 .sugestaoProduto .preco {
     padding:        0px;
+}
+
+.comprar {
+    font-size:      12px;
+}
+
+.comprar a {
+    color:          #0000FF !important;
+}
+
+.clear {
+    clear:          both;
+    height:         0px;
+    overflow:       hidden;
+}
+
+.carrinhoMenu {
+    font-size:      12px;
+}
+
+.carrinhoMenu img {
+    float:          left;
+    margin-right:         3px;
+}
+
+.carrinhoMenu p {
+    margin-top:         3px;
+}
+
+.produtoCarrinho td {
+    font-size:          12px;
+}
+
+.carrinhoLinkFinalizar {
+    text-align:     right;
+    padding:        5px;
+    font-size:      16px;
+    font-weight:    bold;
+}
+
+.carrinhoLinkFinalizar a {
+    color:          #0000FF !important;
 }

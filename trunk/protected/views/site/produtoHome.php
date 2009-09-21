@@ -7,5 +7,8 @@
         <div class="preco">
             R$ <?php echo number_format($produto->precoProduto, 2,',','.'); ?>
         </div>
+        <div class="comprar">
+            <?php echo CHtml::link("Adicionar ao carrinho", array("/carrinho/adicionar",'id'=>$produto->idProduto)); ?>
+        </div>
     </a>
 </div>
