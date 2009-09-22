@@ -1,15 +1,11 @@
 <?php
 
-class Cupom extends CActiveRecord
+class ClienteCupom extends CActiveRecord
 {
 	/**
-	 * The followings are the available columns in table 'Cupom':
+	 * The followings are the available columns in table 'ClienteCupom':
+	 * @var integer $idCliente
 	 * @var integer $idCupom
-	 * @var string $chaveCupom
-	 * @var string $valorCupom
-	 * @var integer $tipoCupom
-	 * @var integer $usoUnicoCupom
-	 * @var integer $restritoCupom
 	 */
 
 	/**
@@ -26,7 +22,7 @@ class Cupom extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'Cupom';
+		return 'ClienteCupom';
 	}
 
 	/**
@@ -35,10 +31,8 @@ class Cupom extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('chaveCupom','length','max'=>45),
-			array('valorCupom','length','max'=>10),
-			array('chaveCupom, valorCupom, tipoCupom, usoUnicoCupom, restritoCupom', 'required'),
-			array('tipoCupom, usoUnicoCupom, restritoCupom', 'numerical', 'integerOnly'=>true),
+			array('idCliente, idCupom', 'required'),
+			array('idCliente, idCupom', 'numerical', 'integerOnly'=>true),
 		);
 	}
 
@@ -59,12 +53,8 @@ class Cupom extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'idCliente'=>'Id Cliente',
 			'idCupom'=>'Id Cupom',
-			'chaveCupom'=>'Chave Cupom',
-			'valorCupom'=>'Valor Cupom',
-			'tipoCupom'=>'Tipo Cupom',
-			'usoUnicoCupom'=>'Uso Unico Cupom',
-			'restritoCupom'=>'Restrito Cupom',
 		);
 	}
 }
