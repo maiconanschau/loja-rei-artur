@@ -41,6 +41,12 @@ class Carrinho extends CWidget {
         return (isset($_SESSION['Carrinho']['produtos']) && is_array($_SESSION['Carrinho']['produtos'])) ? $_SESSION['Carrinho']['produtos'] : array();
     }
 
+    public static function clearProdutos() {
+        CTXSession::open();
+
+        unset($_SESSION['Carrinho']['produtos']);
+    }
+
     public function run() {
         CTXSession::open();
 

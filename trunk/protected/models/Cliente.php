@@ -75,6 +75,7 @@ class Cliente extends CActiveRecord {
         'enderecos'=>array(self::HAS_MANY,'Endereco','idCliente'),
         'respostasQuestionario'=>array(self::HAS_MANY,'QuestionarioCliente','idCliente'),
         'cupom'=>array(self::HAS_MANY, 'Cupom', 'idCliente'),
+        'pedido'=>array(self::HAS_MANY, 'Pedido', 'idPedido'),
         );
     }
 

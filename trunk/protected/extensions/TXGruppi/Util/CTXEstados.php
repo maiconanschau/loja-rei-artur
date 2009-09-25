@@ -61,7 +61,7 @@ class CTXEstados {
     }
 
     public static function getTexto($value) {
-        $options = $this->getOptions();
+        $options = self::getOptions();
         return isset($options[$value]) ? $options[$value] : "desconhecido ({$value})";
     }
 }

@@ -4,6 +4,12 @@ class Pedido extends CActiveRecord
 {
 	/**
 	 * The followings are the available columns in table 'Pedido':
+	 * @var integer $idPedido
+	 * @var integer $idCupom
+	 * @var integer $idCliente
+	 * @var integer $idEndereco
+	 * @var string $dataPedido
+	 * @var string $valorEntrega
 	 */
 
 	/**
@@ -29,6 +35,9 @@ class Pedido extends CActiveRecord
 	public function rules()
 	{
 		return array(
+			array('valorEntrega','length','max'=>10),
+			array('dataPedido, valorEntrega', 'required'),
+			array('idCupom', 'numerical', 'integerOnly'=>true),
 		);
 	}
 
@@ -40,6 +49,7 @@ class Pedido extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'cliente'=>array(self::BELONGS_TO, 'Cliente','idCliente'),
 		);
 	}
 
@@ -49,6 +59,19 @@ class Pedido extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'idPedido'=>'Id',
+			'idCupom'=>'Cupom',
+			'idCliente'=>'Cliente',
+			'idEndereco'=>'Endereço',
+			'dataPedido'=>'Data',
+			'valorEntrega'=>'Valor',
 		);
 	}
+
+        public function beforeValidate() {
+            if (empty($this->dataPedido)) {
+                $this->dataPedido = date("Y-m-d H:i:s");
+            }
+            return true;
+        }
 }

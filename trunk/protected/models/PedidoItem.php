@@ -4,6 +4,13 @@ class PedidoItem extends CActiveRecord
 {
 	/**
 	 * The followings are the available columns in table 'PedidoItem':
+	 * @var integer $idCliente
+	 * @var integer $idEndereco
+	 * @var integer $idCategoria
+	 * @var double $idProduto
+	 * @var integer $idPedido
+	 * @var integer $quantidadePedidoItem
+	 * @var string $valorPedidoItem
 	 */
 
 	/**
@@ -29,6 +36,10 @@ class PedidoItem extends CActiveRecord
 	public function rules()
 	{
 		return array(
+			array('valorPedidoItem','length','max'=>10),
+			array('idCliente, idEndereco, idCategoria, idProduto, idPedido, quantidadePedidoItem, valorPedidoItem', 'required'),
+			array('idCliente, idEndereco, idCategoria, idPedido, quantidadePedidoItem', 'numerical', 'integerOnly'=>true),
+			array('idProduto', 'numerical'),
 		);
 	}
 
@@ -49,6 +60,13 @@ class PedidoItem extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'idCliente'=>'Id Cliente',
+			'idEndereco'=>'Id Endereco',
+			'idCategoria'=>'Id Categoria',
+			'idProduto'=>'Id Produto',
+			'idPedido'=>'Id Pedido',
+			'quantidadePedidoItem'=>'Quantidade Pedido Item',
+			'valorPedidoItem'=>'Valor Pedido Item',
 		);
 	}
 }

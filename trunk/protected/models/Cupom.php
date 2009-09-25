@@ -8,9 +8,11 @@ class Cupom extends CActiveRecord
 	 * @var string $chaveCupom
 	 * @var string $valorCupom
 	 * @var integer $tipoCupom
-	 * @var integer $usoUnicoCupom
 	 * @var integer $restritoCupom
 	 */
+
+         const TIPO_VALOR = 1;
+         const TIPO_PORCENTAGEM = 2;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -29,6 +31,18 @@ class Cupom extends CActiveRecord
 		return 'Cupom';
 	}
 
+        public function getTipoOptions() {
+            return array(
+                self::TIPO_VALOR => "Valor",
+                self::TIPO_PORCENTAGEM => "Porcentagem",
+            );
+        }
+
+        public function getTipoTexto() {
+            $options = $this->getTipoOptions();
+            return isset($options[$this->tipoCupom]) ? $options[$this->tipoCupom] : "desconhecido ({$this->tipoCupom})";
+        }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -36,9 +50,10 @@ class Cupom extends CActiveRecord
 	{
 		return array(
 			array('chaveCupom','length','max'=>45),
+			array('chaveCupom','unique'),
 			array('valorCupom','length','max'=>10),
-			array('chaveCupom, valorCupom, tipoCupom, usoUnicoCupom, restritoCupom', 'required'),
-			array('tipoCupom, usoUnicoCupom, restritoCupom', 'numerical', 'integerOnly'=>true),
+			array('chaveCupom, valorCupom, tipoCupom', 'required'),
+			array('tipoCupom, restritoCupom', 'numerical', 'integerOnly'=>true),
 		);
 	}
 
@@ -50,6 +65,7 @@ class Cupom extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'cliente'=>array(self::MANY_MANY, 'Cliente', 'ClienteCupom(idCupom,idCliente)'),
 		);
 	}
 
@@ -59,12 +75,18 @@ class Cupom extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idCupom'=>'Id Cupom',
-			'chaveCupom'=>'Chave Cupom',
-			'valorCupom'=>'Valor Cupom',
-			'tipoCupom'=>'Tipo Cupom',
-			'usoUnicoCupom'=>'Uso Unico Cupom',
-			'restritoCupom'=>'Restrito Cupom',
+			'idCupom'=>'Id',
+			'chaveCupom'=>'Chave',
+			'valorCupom'=>'Valor',
+			'tipoCupom'=>'Tipo',
+			'restritoCupom'=>'Restrito',
 		);
 	}
+
+        public function beforeValidate() {
+            if (empty($this->chaveCupom)) {
+                $this->chaveCupom = substr(md5(microtime()), 0, 20);
+            }
+            return true;
+        }
 }
