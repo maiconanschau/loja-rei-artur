@@ -57,7 +57,7 @@ const TIPO_EXTRA = 2;
         array('cepEndereco','length','max'=>8),
         array('cidadeEndereco','length','max'=>150),
         array('estadoEndereco','length','max'=>2),
-        array('tipoEndereco, ruaEndereco, numeroEndereco, bairroEndereco, cepEndereco, cidadeEndereco, estadoEndereco', 'required'),
+        array('idCliente, tipoEndereco, ruaEndereco, numeroEndereco, bairroEndereco, cepEndereco, cidadeEndereco, estadoEndereco', 'required'),
         array('idCliente, idEndereco, tipoEndereco', 'numerical', 'integerOnly'=>true),
         );
     }

@@ -384,3 +384,34 @@ a img {
 .carrinhoLinkFinalizar a {
     color:          #0000FF !important;
 }
+
+.pedido tr th, .pedido tr td, .endereco tr th, .endereco tr td {
+    font-size:      12px;
+}
+
+.pedido tr th, .endereco tr th {
+    text-align:     right;
+    padding:        4px;
+    background:     #DDDDDD;
+    border:         1px solid;
+}
+
+.pedido tr td, .endereco tr td {
+    text-align:     left;
+    padding:        4px;
+    border:         1px solid;
+}
+
+.pedido .noStyle {
+    padding:        0px;
+    background:     none;
+    border:         0;
+}
+
+.pedido .itens tr th {
+    text-align:     center;
+}
+
+.pedido .itens tr th.alignRight {
+    text-align:     right;
+}

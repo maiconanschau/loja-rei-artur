@@ -45,7 +45,7 @@ return array(
 		),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-			'urlSuffix'=>'.html',
+			'urlSuffix'=>'.do',
                         'rules'=>array(
                             'categoria/<categoria>'=>'produto/busca'
                         ),
