@@ -10,6 +10,62 @@ class ProdutoController extends CController {
         $this->pageTitle = Yii::app()->name." - Produto";
     }
 
+    public function actionEstoque() {
+        $mes = CTXRequest::getParam('mes');
+
+        if (!empty($mes)) {
+            $ano = date("Y",strtotime("-2years"));
+            $ano1 = $ano;
+            $ano2 = $ano+1;
+            $mes = intval($mes);
+            $mes = $mes <= 9 ? "0$mes" : $mes;
+            $sql = "
+SELECT
+    pi.idProduto,
+    pi.quantidadePedidoItem,
+    YEAR(p.dataPedido) as anoPedido
+FROM
+    Pedido p
+    INNER JOIN PedidoItem pi ON (
+        p.idPedido = pi.idPedido
+    )
+WHERE
+    MONTH(p.dataPedido) = '$mes'
+    AND YEAR(p.dataPedido) BETWEEN '$ano1' AND '$ano2'
+ORDER BY
+    idProduto ASC,
+    anoPedido ASC
+                ";
+            $itens = Yii::app()->db->createCommand($sql)->queryAll();
+
+            $produtos = array();
+
+            foreach ($itens as $v) {
+                if (!isset($produtos[$v['idProduto']][$v['anoPedido']])) $produtos[$v['idProduto']][$v['anoPedido']] = 0;
+                $produtos[$v['idProduto']][$v['anoPedido']] += $v['quantidadePedidoItem'];
+            }
+
+            $quant = array();
+            foreach ($produtos as $k=>$v) {
+                if (count($v) != 2) continue;
+                $q1 = $v[$ano1];
+                $q2 = $v[$ano2];
+                $dif = $q2-$q1;
+                if ($dif <= 0) $dif = $q2;
+                $quant[$k] = $q2 + $dif;
+            }
+
+            $this->render('estoque',array(
+                'mes'=>$mes,
+                'quant'=>$quant
+            ));
+        }
+
+        $this->render('estoque',array(
+            'mes'=>$mes
+        ));
+    }
+
     public function actionAprovarComentario() {
         $comentario = $this->loadComentario();
         $comentario->statusComentario = 1;
@@ -68,9 +124,9 @@ class ProdutoController extends CController {
         }
 
         $this->render('fotos',array(
-                'model'=>$model,
-                'table'=>$table,
-            ));
+            'model'=>$model,
+            'table'=>$table,
+        ));
     }
 
     public function actionCreate() {
@@ -158,13 +214,13 @@ class ProdutoController extends CController {
     protected function processAdminCommand() {
         if(isset($_POST['command'], $_POST['id']) && $_POST['command']==='delete') {
             $produto = $this->loadProduto($_POST['id']);
-            
+
             $fotos = $produto->fotos;
             foreach ($fotos as $v) {
-            	@unlink(Yii::app()->params['imagePath']."/".$v->arquivoFotoProduto);
-            	$v->delete();
+                @unlink(Yii::app()->params['imagePath']."/".$v->arquivoFotoProduto);
+                $v->delete();
             }
-            
+
             $produto->delete();
             // reload the current page to avoid duplicated delete actions
             $this->refresh();

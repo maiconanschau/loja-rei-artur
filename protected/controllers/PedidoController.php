@@ -57,7 +57,7 @@ class PedidoController extends CController {
             'cupom'=>$cupom,
             'valorCupom'=>$valorCupom,
             'totalPedido'=>$totalPedido,
-			'endereco'=>$endereco,
+            'endereco'=>$endereco,
         ));
     }
 
@@ -114,13 +114,86 @@ class PedidoController extends CController {
             $cupomForm->chave = isset($_POST['CupomForm']['chave']) ? $_POST['CupomForm']['chave'] : (isset($_SESSION['CupomForm']['chave']) ? $_SESSION['CupomForm']['chave'] : null);
             $cupomForm->cliente = $cliente->idCliente;
             if ($cupomForm->validate()) {
+                $descontoValido = true;
                 $exibeCupom = true;
                 $_SESSION['CupomForm']['chave'] = $cupomForm->chave;
                 $cupom = Cupom::model()->findByAttributes(array('chaveCupom'=>$cupomForm->chave));
+
+                $cupomMeta['categorias'] = CupomMeta::model()->findAllByAttributes(array('chaveCupomMeta'=>'categoria','idCupom'=>$cupom->idCupom));
+                $cupomMeta['produtos'] = CupomMeta::model()->findAllByAttributes(array('chaveCupomMeta'=>'produto','idCupom'=>$cupom->idCupom));
+                $cupomMeta['valorMin'] = CupomMeta::model()->findByAttributes(array('chaveCupomMeta'=>'valorMin','idCupom'=>$cupom->idCupom));
+                $cupomMeta['valorMax'] = CupomMeta::model()->findByAttributes(array('chaveCupomMeta'=>'valorMax','idCupom'=>$cupom->idCupom));
+
+                if (!empty($cupomMeta['categorias']) || !empty($cupomMeta['produtos']) || !empty($cupomMeta['valorMin']) || !empty($cupomMeta['valorMax'])) {
+                    $descontoValido = false;
+                    $produtosValidosPorProduto = array();
+                    $produtosValidosPorCategoria = array();
+                    foreach ($cupomMeta['produtos'] as $v) {
+                        if (isset($produtosCarrinho[$v->valorCupomMeta])) {
+                            $p = $produtosCarrinho[$v->valorCupomMeta]['produto'];
+                            $produtosValidosPorProduto[] = $p->idProduto;
+                        }
+                    }
+                    foreach ($cupomMeta['categorias'] as $v) {
+                        foreach ($produtosCarrinho as $p) {
+                            $p = $p['produto'];
+                            if ($p->idCategoria == $v->valorCupomMeta) {
+                                $produtosValidosPorCategoria[] = $p->idProduto;
+                            }
+                        }
+                    }
+                    if (empty($produtosValidosPorCategoria) && empty($cupomMeta['categorias']) && empty($produtosValidosPorProduto) && empty($cupomMeta['produtos'])) {
+                        $descontoValido = true;
+                    } elseif (empty($produtosValidosPorCategoria) && empty($cupomMeta['categorias'])) {
+                        $produtosValidosChaves = $produtosValidosPorProduto;
+                    } elseif (empty($produtosValidosPorProduto) && empty($cupomMeta['produtos'])) {
+                        $produtosValidosChaves = $produtosValidosPorCategoria;
+                    } else {
+                        $produtosValidosChaves = array_intersect($produtosValidosPorCategoria, $produtosValidosPorProduto);
+                    }
+                    $produtosValidosValores = array();
+                    foreach ($produtosValidosChaves as $v) {
+                        $produtosValidosValores[$v] = $produtosCarrinho[$v]['produto']->precoProduto;
+                    }
+                }
+
+                if (!empty($produtosValidosValores)) {
+                    $totalPedidoDesconto = array_sum($produtosValidosValores);
+                    $descontoValido = true;
+                } else {
+                    $totalPedidoDesconto = $totalPedido;
+                }
+
                 if ($cupom->tipoCupom == Cupom::TIPO_VALOR) {
                     $valorCupom = $cupom->valorCupom;
                 } elseif ($cupom->tipoCupom == Cupom::TIPO_PORCENTAGEM) {
-                    $valorCupom = $totalPedido*($cupom->valorCupom/100);
+                    $valorCupom = $totalPedidoDesconto*($cupom->valorCupom/100);
+                }
+
+                if ($descontoValido) {
+                    if (!empty($cupomMeta['valorMin']) && !empty($cupomMeta['valorMax'])) {
+                        if ($totalPedido < $cupomMeta['valorMin']->valorCupomMeta || $totalPedido > $cupomMeta['valorMax']->valorCupomMeta) {
+                            $descontoValido = false;
+                        } else {
+                            $descontoValido = true;
+                        }
+                    } elseif (!empty($cupomMeta['valorMin'])) {
+                        if ($totalPedido < $cupomMeta['valorMin']->valorCupomMeta) {
+                            $descontoValido = false;
+                        } else {
+                            $descontoValido = true;
+                        }
+                    } elseif (!empty($cupomMeta['valorMax'])) {
+                        if ($totalPedido > $cupomMeta['valorMax']->valorCupomMeta) {
+                            $descontoValido = false;
+                        } else {
+                            $descontoValido = true;
+                        }
+                    }
+                }
+
+                if (!$descontoValido) {
+                    $valorCupom = 0;
                 }
             } else {
                 $cupomForm->chave = "";
@@ -172,6 +245,15 @@ class PedidoController extends CController {
 
         if ($pedido->save()) {
             foreach ($produtos as $v) {
+                $v['produto'] = Produto::model()->findByPk($v['produto']->idProduto);
+                if ($v['produto']->quantAtualProduto <= 0) {
+                    $pedido->delete();
+                    Carrinho::removeProduto($v['produto']->idProduto);
+                    $this->redirect(array('pedido/finalizar'));
+                }
+                $v['produto']->quantAtualProduto--;
+                $v['produto']->save();
+
                 $temp = new PedidoItem();
                 $temp->idCliente = $cliente->idCliente;
                 $temp->idEndereco = $endereco->idEndereco;

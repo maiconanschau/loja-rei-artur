@@ -36,8 +36,9 @@ class Produto extends CActiveRecord {
         array('nomeProduto','length','max'=>45),
         array('precoProduto','length','max'=>10),
         array('fabricanteProduto','length','max'=>255),
-        array('idCategoria, nomeProduto, descricaoCurtaProduto, descricaoLongaProduto, fabricanteProduto, pesoProduto, precoProduto', 'required'),
+        array('idCategoria, nomeProduto, descricaoCurtaProduto, descricaoLongaProduto, fabricanteProduto, pesoProduto, precoProduto, quantMinProduto, quantMaxProduto, quantAtualProduto', 'required'),
         array('pesoProduto', 'numerical'),
+        array('quantMinProduto, quantMaxProduto, quantAtualProduto', 'numerical', 'integerOnly'=>true),
         );
     }
 
@@ -48,15 +49,16 @@ class Produto extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
         return array(
-            'fotos'=>array(self::HAS_MANY,'FotoProduto','idProduto'),
-            'fotosVisiveis'=>array(self::HAS_MANY,'FotoProduto','idProduto','condition'=>'??.visivelFotoProduto = 1'),
-            'categoria'=>array(self::BELONGS_TO,'CategoriaProduto','idCategoria'),
-            'comentarios'=>array(self::HAS_MANY, 'Comentario', 'idProduto', 'order'=>'??.dataComentario'),
-            'comentariosPendentes'=>array(self::HAS_MANY, 'Comentario', 'idProduto','condition'=>'??.statusComentario = 0'),
+        'fotos'=>array(self::HAS_MANY,'FotoProduto','idProduto'),
+        'fotosVisiveis'=>array(self::HAS_MANY,'FotoProduto','idProduto','condition'=>'??.visivelFotoProduto = 1'),
+        'categoria'=>array(self::BELONGS_TO,'CategoriaProduto','idCategoria'),
+        'comentarios'=>array(self::HAS_MANY, 'Comentario', 'idProduto', 'order'=>'??.dataComentario'),
+        'comentariosPendentes'=>array(self::HAS_MANY, 'Comentario', 'idProduto','condition'=>'??.statusComentario = 0'),
+        'estoque'=>array(self::HAS_MANY, 'Estoque', 'idProduto'),
         );
     }
 
-    
+
     public function attributeLabels() {
         return array(
         'idProduto'=>'Id',
@@ -67,10 +69,9 @@ class Produto extends CActiveRecord {
         'fabricanteProduto'=>'Fabricante',
         'pesoProduto'=>'Peso',
         'precoProduto'=>'Preço',
+        'quantMinProduto'=>'Quant. Min.',
+        'quantMaxProduto'=>'Quant. Max.',
+        'quantAtualProduto'=>'Quant. Atual',
         );
     }
-
-
-
-
 }

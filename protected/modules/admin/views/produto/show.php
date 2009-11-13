@@ -48,4 +48,16 @@
         <td><?php echo CHtml::encode($model->precoProduto); ?>
         </td>
     </tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('quantMinProduto')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->quantMinProduto); ?>
+        </td>
+    </tr>
+    <tr>
+        <th class="label"><?php echo CHtml::encode($model->getAttributeLabel('quantMaxProduto')); ?>
+        </th>
+        <td><?php echo CHtml::encode($model->quantMaxProduto); ?>
+        </td>
+    </tr>
 </table>
