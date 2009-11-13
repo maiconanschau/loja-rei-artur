@@ -85,7 +85,7 @@ class Cupom extends CActiveRecord
 
         public function beforeValidate() {
             if (empty($this->chaveCupom)) {
-                $this->chaveCupom = substr(md5(microtime()), 0, 20);
+                $this->chaveCupom = strtoupper(substr(uniqid(true), 0, 10));
             }
             return true;
         }

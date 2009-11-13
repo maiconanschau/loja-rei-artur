@@ -10,6 +10,56 @@ class PedidoController extends CController {
         $this->pageTitle = Yii::app()->name;
     }
 
+    public function actionRelatorio() {
+        Yii::import("application.extensions.TXGruppi.Util.*");
+
+        CTXClientScript::registerScriptFile('jquery');
+        CTXClientScript::registerScriptFile('jquery.maskedinput');
+
+        $dataInicial = CTXDate::toSql(urldecode(CTXRequest::getParam('di',date("Y-m-d 00:00:00",strtotime("-1month")))));
+        $dataFinal = CTXDate::toSql(urldecode(CTXRequest::getParam('df', date("Y-m-d 23:59:59"))));
+
+        if ($dataFinal < $dataInicial) {
+            $this->redirect(array('pedido/relatorio'));
+        }
+
+        $pedidos = Pedido::model()->findAll(array('condition'=>"dataPedido BETWEEN '$dataInicial' AND '$dataFinal'"));
+        $totalPeriodo = $mediaPeriodo = $totalProdutos = 0;
+        $produtos = array();
+        foreach ($pedidos as $v) {
+            $itens = PedidoItem::model()->findAllByAttributes(array('idPedido'=>$v->idPedido));
+            foreach ($itens as $i) {
+                $totalProdutos += $i->quantidadePedidoItem;
+                if (!isset($produtos[$i->idProduto])) {
+                    $arr = $produtos[$i->idProduto];
+                } else {
+                    $arr = $produtos[$i->idProduto];
+                }
+
+                $arr['produto'] = Produto::model()->findByAttributes(array('idProduto'=>$i->idProduto));
+                $arr['item'] = $i;
+                if (!isset($arr['quant'])) $arr['quant'] = 0;
+                $arr['quant'] += $i->quantidadePedidoItem;
+                if (!isset($arr['total'])) $arr['total'] = 0;
+                $arr['total'] += $i->valorPedidoItem * $i->quantidadePedidoItem;
+                $totalPeriodo += $i->valorPedidoItem * $i->quantidadePedidoItem;
+
+                $produtos[$i->idProduto] = $arr;
+            }
+        }
+
+        if ($totalProdutos > 0) $mediaPeriodo = $totalPeriodo / $totalProdutos;
+
+        $this->render("relatorio",array(
+            'dataInicial'=>$dataInicial,
+            'dataFinal'=>$dataFinal,
+            'produtos'=>$produtos,
+            'totalPeriodo'=>$totalPeriodo,
+            'totalProdutos'=>$totalProdutos,
+            'mediaPeriodo'=>$mediaPeriodo,
+        ));
+    }
+
     public function actionDetalhes() {
         Yii::import("application.extensions.TXGruppi.Util.*");
 

@@ -32,6 +32,21 @@
         <?php echo CHtml::activeTextField($model,'precoProduto',array('size'=>10,'maxlength'=>10)); ?>
     </div>
 
+    <div class="simple">
+        <?php echo CHtml::activeLabelEx($model, 'quantMinProduto'); ?>
+        <?php echo CHtml::activeTextField($model, 'quantMinProduto'); ?>
+    </div>
+
+    <div class="simple">
+        <?php echo CHtml::activeLabelEx($model, 'quantMaxProduto'); ?>
+        <?php echo CHtml::activeTextField($model, 'quantMaxProduto'); ?>
+    </div>
+
+    <div class="simple">
+        <?php echo CHtml::activeLabelEx($model, 'quantAtualProduto'); ?>
+        <?php echo CHtml::activeTextField($model, 'quantAtualProduto'); ?>
+    </div>
+
     <div class="action">
         <?php echo CHtml::submitButton($update ? 'Salvar' : 'Adicionar'); ?>
     </div>
