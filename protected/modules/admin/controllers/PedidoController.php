@@ -10,6 +10,99 @@ class PedidoController extends CController {
         $this->pageTitle = Yii::app()->name;
     }
 
+    public function actionConfirmar() {
+        $model = $this->loadPedido();
+
+        $itens = PedidoItem::model()->findAllByAttributes(array('idPedido'=>$model->idPedido));
+        $cliente = Cliente::model()->findByPk($model->idCliente);
+        if (empty($cliente)) {
+            throw new Exception("Erro ao selecionar cliente.");
+            die();
+        }
+
+        $model->statusPedido = 1;
+        if ($model->save()) {
+            foreach ($itens as $v) {
+                $produto = Produto::model()->findByPk($v->idProduto);
+                $produto->quantAtualProduto--;
+                $produto->save();
+            }
+
+            Yii::import("application.extensions.*");
+            require_once("Zend/Mail.php");
+            require_once("Zend/Mail/Transport/Smtp.php");
+            require_once("Zend/Mail/Protocol/Smtp/Auth/Login.php");
+
+            $mail = new Zend_Mail();
+            $transport = new Zend_Mail_Transport_Smtp('reiartur.ujobs.com.br', array('auth'=>'login','username'=>'no-reply@reiartur.ujobs.com.br','password'=>'daves654312'));
+
+            $bodyHtml  = '';
+            $bodyHtml .= '<b>Seu pedido foi confirmado</b><br/><br/>';
+            $bodyHtml .= '<table width="100%">';
+            $bodyHtml .= '<tr><th>Número do pedido</th><td>'.$model->idPedido.'</td></tr>';
+            $bodyHtml .= '<tr><th>Data da confirmação</th><td>'.date("d/m/Y").'</td></tr>';
+            $bodyHtml .= '</table><br/>';
+            $bodyHtml .= '<p>';
+            $bodyHtml .= 'Para mais informações entre em contato pelo telefone (32) 3232-3232.';
+            $bodyHtml .= '</p>';
+
+            $bodyHtml = utf8_decode($bodyHtml);
+
+            $mail->setReplyTo('no-reply@reiartur.ujobs.com.br');
+            $mail->setFrom('no-reply@reiartur.ujobs.com.br');
+
+            $mail->setSubject(utf8_decode("Loja Rei Artur - Confirmação de pedido"));
+            $mail->setBodyHtml($bodyHtml);
+            $mail->addTo($cliente->emailCliente);
+            @$mail->send($transport);
+        }
+
+        $this->redirect(array('listar'));
+    }
+
+    public function actionCancelar() {
+        $model = $this->loadPedido();
+
+        $cliente = Cliente::model()->findByPk($model->idCliente);
+        if (empty($cliente)) {
+            throw new Exception("Erro ao selecionar cliente.");
+            die();
+        }
+
+        $model->statusPedido = 0;
+        if ($model->save()) {
+            Yii::import("application.extensions.*");
+            require_once("Zend/Mail.php");
+            require_once("Zend/Mail/Transport/Smtp.php");
+            require_once("Zend/Mail/Protocol/Smtp/Auth/Login.php");
+
+            $mail = new Zend_Mail();
+            $transport = new Zend_Mail_Transport_Smtp('reiartur.ujobs.com.br', array('auth'=>'login','username'=>'no-reply@reiartur.ujobs.com.br','password'=>'daves654312'));
+
+            $bodyHtml  = '';
+            $bodyHtml .= '<b>Seu pedido foi cancelado</b><br/><br/>';
+            $bodyHtml .= '<table width="100%">';
+            $bodyHtml .= '<tr><th>Número do pedido</th><td>'.$model->idPedido.'</td></tr>';
+            $bodyHtml .= '<tr><th>Data do cancelamento</th><td>'.date("d/m/Y").'</td></tr>';
+            $bodyHtml .= '</table><br/>';
+            $bodyHtml .= '<p>';
+            $bodyHtml .= 'Para mais informações entre em contato pelo telefone (32) 3232-3232.';
+            $bodyHtml .= '</p>';
+
+            $bodyHtml = utf8_decode($bodyHtml);
+
+            $mail->setReplyTo('no-reply@reiartur.ujobs.com.br');
+            $mail->setFrom('no-reply@reiartur.ujobs.com.br');
+
+            $mail->setSubject(utf8_decode("Loja Rei Artur - Pedido cancelado"));
+            $mail->setBodyHtml($bodyHtml);
+            $mail->addTo($cliente->emailCliente);
+            @$mail->send($transport);
+        }
+
+        $this->redirect(array('listar'));
+    }
+
     public function actionRelatorio() {
         Yii::import("application.extensions.TXGruppi.Util.*");
 

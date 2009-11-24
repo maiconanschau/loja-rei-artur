@@ -51,6 +51,10 @@
                     <th colspan="3" class="alignRight">Total</th>
                     <td><?php echo $exibeCupom ? CTXUtil::formatMoney($totalPedido + 10 - $valorCupom) : CTXUtil::formatMoney($totalPedido + 10); ?></td>
                 </tr>
+                <tr>
+                    <th colspan="2">Forma de pagamento</th>
+                    <td colspan="2"><?php echo CHtml::radioButtonList('formaPagamento', $formaPagamento, Pedido::getFormaOptions(),array('class'=>'formaPagamento')); ?></td>
+                </tr>
             </table>
         </td>
     </tr>
@@ -202,6 +206,10 @@
                 $(this).html(textoLinkSel);
                 $('.novoEndereco :input').attr('disabled',false);
             }
+        });
+
+        $('.formaPagamento').click(function(e){
+            document.location = document.location + "?fp="+$(this).val();
         });
     });
 </script>
