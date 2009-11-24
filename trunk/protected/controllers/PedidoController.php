@@ -105,6 +105,7 @@ class PedidoController extends CController {
         $exibeCupom = false;
         $valorCupom = 0;
         $totalPedido = 0;
+        $formaPagamento = isset($_SESSION['formaPagamento']) ? $_SESSION['formaPagamento'] : Pedido::FORMA_BOLETO;
 
         foreach ($produtosCarrinho as $v) {
             $totalPedido += $v['quant'] * $v['produto']->precoProduto;
@@ -200,6 +201,12 @@ class PedidoController extends CController {
             }
         }
 
+        if (isset($_GET['fp'])) {
+            $formaPagamento = $_GET['fp'];
+            $_SESSION['formaPagamento'] = $formaPagamento;
+            $this->redirect(array('finalizar'));
+        }
+
         if (isset($_GET['endereco'])) {
             $endereco = CTXRequest::getParam('endereco');
             $endereco = Endereco::model()->findByPk($endereco);
@@ -226,22 +233,25 @@ class PedidoController extends CController {
             'totalPedido'=>$totalPedido,
             'modelEndereco'=>$modelEndereco,
             'enderecos'=>$enderecos,
+            'formaPagamento'=>$formaPagamento,
         ));
     }
 
     public function finalizaPedido($produtos,$cliente,$cupom,$exibeCupom,$valorCupom,$total,$endereco) {
         CTXSession::open();
         $pedido = new Pedido();
+        $pedido->formaPagamentoPedido = isset($_SESSION['formaPagamento']) ? $_SESSION['formaPagamento'] : Pedido::FORMA_BOLETO;
         if ($exibeCupom) {
             $cupom = Cupom::model()->findByAttributes(array('chaveCupom'=>$cupom->chave));
             $pedido->idCupom = $cupom->idCupom;
         } else {
             $pedido->idCupom = 0;
         }
-
+        
         $pedido->idCliente = $cliente->idCliente;
         $pedido->idEndereco = $endereco->idEndereco;
         $pedido->valorEntrega = 10;
+        $pedido->statusPedido = 2; // Aguardando aprovação
 
         if ($pedido->save()) {
             foreach ($produtos as $v) {
@@ -251,8 +261,8 @@ class PedidoController extends CController {
                     Carrinho::removeProduto($v['produto']->idProduto);
                     $this->redirect(array('pedido/finalizar'));
                 }
-                $v['produto']->quantAtualProduto--;
-                $v['produto']->save();
+                //$v['produto']->quantAtualProduto--;
+                //$v['produto']->save();
 
                 $temp = new PedidoItem();
                 $temp->idCliente = $cliente->idCliente;
@@ -264,10 +274,67 @@ class PedidoController extends CController {
                 $temp->valorPedidoItem = $v['produto']->precoProduto;
                 $temp->save();
             }
-            Carrinho::clearProdutos();
-            unset($_SESSION['CupomForm']['chave']);
+            //Carrinho::clearProdutos();
+            //unset($_SESSION['CupomForm']['chave']);
+
+            // Email com dados para pagamento
+            Yii::import("application.extensions.*");
+            require_once("Zend/Mail.php");
+            require_once("Zend/Mail/Transport/Smtp.php");
+            require_once("Zend/Mail/Protocol/Smtp/Auth/Login.php");
+
+            $mail = new Zend_Mail();
+            $transport = new Zend_Mail_Transport_Smtp('reiartur.ujobs.com.br', array('auth'=>'login','username'=>'no-reply@reiartur.ujobs.com.br','password'=>'daves654312'));
+
+            $bodyHtml  = '';
+            $bodyHtml .= '<b>Recebemos seu pedido</b><br/><br/>';
+            $bodyHtml .= '<table width="100%">';
+            $bodyHtml .= '<tr><th>Número do pedido</th><td>'.$model->idPedido.'</td></tr>';
+            $bodyHtml .= '<tr><th>Data da compra</th><td>'.date("d/m/Y").'</td></tr>';
+            $bodyHtml .= '</table><br/>';
+            if ($pedido->formaPagamentoPedido == Pedido::FORMA_BOLETO) {
+                $bodyHtml .= $this->renderPartial('forma-boleto', array(
+                    'produtos'=>$produtos,
+                    'cliente'=>$cliente,
+                    'cupom'=>$cupom,
+                    'exibeCupom'=>$exibeCupom,
+                    'valorCupom'=>$valorCupom,
+                    'total'=>$total,
+                    'endereco'=>$endereco,
+                    'pedido'=>$pedido,
+                ), true);
+            } elseif ($pedido->formaPagamentoPedido == Pedido::FORMA_TRANSFERENCIA) {
+                $bodyHtml .= $this->renderPartial('forma-transferencia', array(
+                    'produtos'=>$produtos,
+                    'cliente'=>$cliente,
+                    'cupom'=>$cupom,
+                    'exibeCupom'=>$exibeCupom,
+                    'valorCupom'=>$valorCupom,
+                    'total'=>$total,
+                    'endereco'=>$endereco,
+                    'pedido'=>$pedido,
+                ), true);
+            }
+
+            $bodyHtml = utf8_decode($bodyHtml);
+
+            $mail->setReplyTo('no-reply@reiartur.ujobs.com.br');
+            $mail->setFrom('no-reply@reiartur.ujobs.com.br');
+
+            $mail->setSubject(utf8_decode("Loja Rei Artur - Pedido recebido"));
+            $mail->setBodyHtml($bodyHtml);
+            $mail->addTo($cliente->emailCliente);
+            @$mail->send($transport);
+            echo "<br/>\n<br/>\n".__FILE__." ".__LINE__;
+            die();
             $this->redirect(array('/pedido/detalhes','id'=>$pedido->idPedido,'c'=>1));
         } else {
+            echo "<pre>";
+            var_dump($pedido->getErrors());
+            echo "</pre>";
+            echo "não salvo";
+            echo "<br/>\n<br/>\n".__FILE__." ".__LINE__;
+            die();
             $this->redirect(array('/pedido/finalizar'));
         }
     }

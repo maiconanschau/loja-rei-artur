@@ -1,3 +1,8 @@
+<style>
+.cCategorias label, .cProdutos label {
+	width:		300px !important;
+}
+</style>
 <div class="yiiForm">
 
     <?php echo CHtml::beginForm(); ?>
@@ -61,7 +66,7 @@
         <fieldset>
             <legend>Categorias</legend>
 
-            <div class="simple">
+            <div class="simple cCategorias">
                 <?php echo CHtml::activeCheckBoxList($form, 'categorias', $categorias, array('style'=>'margin-bottom:7px;')); ?>
             </div>
         </fieldset>
@@ -69,7 +74,7 @@
         <fieldset>
             <legend>Produtos</legend>
 
-            <div class="simple">
+            <div class="simple cProdutos">
                 <?php echo CHtml::activeCheckBoxList($form, 'produtos', $produtos, array('style'=>'margin-bottom:7px;')); ?>
             </div>
         </fieldset>

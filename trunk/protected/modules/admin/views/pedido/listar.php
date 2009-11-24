@@ -7,7 +7,7 @@
         <?php echo CHtml::label('Data inicial', 'datai'); ?>
         <?php echo CHtml::textField('datai', $datai); ?>
     </div>
-    
+
     <div class="simple">
         <?php echo CHtml::label('Data final', 'dataf'); ?>
         <?php echo CHtml::textField('dataf', $dataf); ?>
@@ -38,8 +38,9 @@
                 <?php
                 $pedidoItem = PedidoItem::model()->findAllByAttributes(array('idPedido'=>$model->idPedido));
                 $total = 0;
+
                 foreach ($pedidoItem as $v) {
-                    $total += $pedidoItem->valorPedidoItem * $pedidoItem->quantidadePedidoItem;
+                    $total += $v->valorPedidoItem * $v->quantidadePedidoItem;
                 }
                 if ($cupom->tipoCupom == Cupom::TIPO_VALOR) {
                     $valorCupom = $cupom->valorCupom;
@@ -53,6 +54,10 @@
         </td>
         <td>
                 <?php echo CHtml::link('Detalhes',array('detalhes','id'=>$model->idPedido)); ?>
+                <?php if ($model->statusPedido == 2) : ?>
+                    <?php echo CHtml::link('Confirmar', array('confirmar','id'=>$model->idPedido),array('confirm'=>'Ao confirmar este pedido será enviado um e-mail ao cliente informando sobre a confirmação.')); ?>
+                    <?php echo CHtml::link('Cancelar', array('cancelar','id'=>$model->idPedido), array('confirm'=>'Ao cancelar este pedido será enviado um e-mail ao cliente informando sobre o cancelamento.')); ?>
+                <?php endif; ?>
         </td>
     </tr>
     <?php endforeach; ?>
