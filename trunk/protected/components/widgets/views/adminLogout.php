@@ -50,9 +50,8 @@
 </tr>
 <tr>
     <td width="121" align="left" valign="baseline">
-        <a href="<?php echo CHtml::normalizeUrl(array("/admin/relatorio/relatorio1")); ?>"><strong>1º Relatório</strong></a><br/>
-        <a href="<?php echo CHtml::normalizeUrl(array("/admin/relatorio/relatorio2")); ?>"><strong>2º Relatório</strong></a><br/>
-        <a href="<?php echo CHtml::normalizeUrl(array("/admin/relatorio/relatorio3")); ?>"><strong>3º Relatório</strong></a><br/>
+        <a href="<?php echo CHtml::normalizeUrl(array("/admin/relatorio/relatorio2")); ?>"><strong>Relatório de estoque</strong></a><br/>
+        <a href="<?php echo CHtml::normalizeUrl(array("/admin/relatorio/relatorio3")); ?>"><strong>Relatório de despesas</strong></a><br/>
     </td>
 </tr>
 <tr>
