@@ -12,6 +12,7 @@ class ProdutoController extends CController {
         $termo = CTXRequest::getParam('q');
         $categoria = CTXRequest::getParam('c');
         $categoriaMenu = CTXRequest::getParam('categoria');
+        if (empty($categoriaMenu)) $categoriaMenu = CTXRequest::getParam('id');
 
         $models = array();
         $pages = null;
