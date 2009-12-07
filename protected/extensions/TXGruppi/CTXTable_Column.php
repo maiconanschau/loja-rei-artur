@@ -13,7 +13,7 @@ class CTXTable_Column extends CTXTable_Element {
         $args = func_get_args();
 
         if (count($args) == 0) return $this->content;
-        if (empty($content)) $content = '&nbsp;';
+        if ($content === '' || $content === null) $content = '&nbsp;';
 
         $this->content = $content;
         return $this;

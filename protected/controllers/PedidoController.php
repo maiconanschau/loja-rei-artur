@@ -325,16 +325,9 @@ class PedidoController extends CController {
             $mail->setBodyHtml($bodyHtml);
             $mail->addTo($cliente->emailCliente);
             @$mail->send($transport);
-            echo "<br/>\n<br/>\n".__FILE__." ".__LINE__;
-            die();
+
             $this->redirect(array('/pedido/detalhes','id'=>$pedido->idPedido,'c'=>1));
         } else {
-            echo "<pre>";
-            var_dump($pedido->getErrors());
-            echo "</pre>";
-            echo "não salvo";
-            echo "<br/>\n<br/>\n".__FILE__." ".__LINE__;
-            die();
             $this->redirect(array('/pedido/finalizar'));
         }
     }

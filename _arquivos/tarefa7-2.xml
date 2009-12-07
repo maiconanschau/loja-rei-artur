@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nota_fiscal>
+    <cabecalho>
+        <serie>#PCDATA</serie>
+        <numero>#PCDATA</numero>
+        <empresa>#PCDATA</empresa>
+        <comprador>#PCDATA</comprador>
+        <data_emissao>#PCDATA</data_emissao>
+    </cabecalho>
+</nota_fiscal>

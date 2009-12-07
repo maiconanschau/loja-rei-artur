@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nota_pedido_compra>
+    <cabecalho>
+        <numero serie="A|B|C">#PCDATA</numero>
+        <empresa>
+            <cgc>#PCDATA</cgc>
+            <nome>#PCDATA</nome>
+            <telefone>#PCDATA</telefone>
+            <endereco>#PCDATA</endereco>
+            <comprador>#PCDATA</comprador>
+        </empresa>
+        <data_emissao>#PCDATA</data_emissao>
+    </cabecalho>
+    <itens>
+        <item>
+            <numero_linha>#PCDATA</numero_linha>
+            <id>#PCDATA</id>
+            <descricao_produto>#PCDATA</descricao_produto>
+            <quantidade>#PCDATA</quantidade>
+            <preco_max>#PCDATA</preco_max>
+        </item>
+    </itens>
+</nota_pedido_compra>

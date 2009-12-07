@@ -7,6 +7,7 @@
     <td width="121" align="left" valign="baseline">
         <a href="<?php echo CHtml::normalizeUrl(array("/admin/categoriaProduto")); ?>"><strong>Categorias</strong></a><br/>
         <a href="<?php echo CHtml::normalizeUrl(array("/admin/produto")); ?>"><strong>Produtos</strong></a><br/>
+        <a href="<?php echo CHtml::normalizeUrl(array("/admin/produto/entrada")); ?>"><strong>Entrada de produtos</strong></a><br/>
         <a href="<?php echo CHtml::normalizeUrl(array("/admin/produto/estoque")); ?>"><strong>Previsão de estoque</strong></a><br/>
     </td>
 </tr>
@@ -40,6 +41,18 @@
 <tr>
     <td width="121" align="left" valign="baseline">
         <a href="<?php echo CHtml::normalizeUrl(array("/admin/mensagem/create")); ?>"><strong>Criar mensagem</strong></a><br/>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" valign="baseline" bgcolor="#CC9933">
+        <strong>Relatórios</strong>
+    </td>
+</tr>
+<tr>
+    <td width="121" align="left" valign="baseline">
+        <a href="<?php echo CHtml::normalizeUrl(array("/admin/relatorio/relatorio1")); ?>"><strong>1º Relatório</strong></a><br/>
+        <a href="<?php echo CHtml::normalizeUrl(array("/admin/relatorio/relatorio2")); ?>"><strong>2º Relatório</strong></a><br/>
+        <a href="<?php echo CHtml::normalizeUrl(array("/admin/relatorio/relatorio3")); ?>"><strong>3º Relatório</strong></a><br/>
     </td>
 </tr>
 <tr>
