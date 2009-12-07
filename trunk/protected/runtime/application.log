@@ -5926,3 +5926,138 @@ Stack trace:
 #7 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
 #8 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
 #9 {main} REQUEST_URI=//loja-rei-artur/index.php/pedido/pagamento/id/imagens/p.png
+2009/11/28 02:07:47 [error] [php] Invalid argument supplied for foreach() (D:\web\htdocs\loja-rei-artur\protected\modules\admin\views\produto\estoque.php:19) REQUEST_URI=/loja-rei-artur/index.php/admin/produto/estoque.do?mes=11&yt0=Filtrar
+2009/11/28 02:12:42 [error] [php] Invalid argument supplied for foreach() (D:\web\htdocs\loja-rei-artur\protected\modules\admin\views\produto\estoque.php:19) REQUEST_URI=/loja-rei-artur/index.php/admin/produto/estoque.do?mes=11&yt0=Filtrar
+2009/11/28 02:19:44 [error] [system.db.CDbCommand] Error in querying SQL: 
+SELECT
+    pi.idProduto,
+    pi.quantidadePedidoItem,
+    YEAR(p.dataPedido) as anoPedido,
+    p.quantMaxProduto
+FROM
+    Pedido p
+    INNER JOIN PedidoItem pi ON (
+        p.idPedido = pi.idPedido
+    )
+WHERE
+    MONTH(p.dataPedido) = '11'
+    AND YEAR(p.dataPedido) BETWEEN '2007' AND '2008'
+    AND p.statusPedido = 1
+ORDER BY
+    idProduto ASC,
+    anoPedido ASC
+                
+2009/11/28 02:19:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p.quantMaxProduto' in 'field list'' in D:\web\htdocs\yii\framework\db\CDbCommand.php:318
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\CDbCommand.php(237): CDbCommand->queryInternal('fetchAll', 2)
+#1 D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php(41): CDbCommand->queryAll()
+#2 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionEstoque()
+#3 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#4 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('estoque')
+#7 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/produto/e...')
+#8 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#9 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#10 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/produto/estoque.do?mes=11&yt0=Filtrar
+2009/11/28 02:31:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encotrar a ação "xmlEnvio" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:439
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(262): CController->missingAction('xmlEnvio')
+#1 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('xmlEnvio')
+#2 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/produto/x...')
+#3 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#4 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#5 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/produto/xmlEnvio.do
+2009/11/28 02:31:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encotrar a ação "xmlEnvio" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:439
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(262): CController->missingAction('xmlEnvio')
+#1 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('xmlEnvio')
+#2 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/produto/x...')
+#3 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#4 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#5 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/produto/xmlEnvio.do
+2009/11/28 02:41:22 [error] [php] Object of class DOMDocument could not be converted to string (D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php:34) REQUEST_URI=/loja-rei-artur/index.php/admin/produto/xmlEnvio.do
+2009/11/28 02:54:49 [error] [exception.Exception] exception 'Exception' with message 'SimpleXMLElement::__construct() expects at least 1 parameter, 0 given' in D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php:33
+Stack trace:
+#0 D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php(33): SimpleXMLElement->__construct()
+#1 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionXmlEnvio()
+#2 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('xmlEnvio')
+#6 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/produto/x...')
+#7 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#8 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#9 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/produto/xmlEnvio.do
+2009/11/28 02:56:09 [error] [exception.Exception] exception 'Exception' with message 'String could not be parsed as XML' in D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php:33
+Stack trace:
+#0 D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php(33): SimpleXMLElement->__construct('')
+#1 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionXmlEnvio()
+#2 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('xmlEnvio')
+#6 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/produto/x...')
+#7 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#8 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#9 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/produto/xmlEnvio.do
+2009/12/02 02:37:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encotrar a ação "entrada" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:439
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(262): CController->missingAction('entrada')
+#1 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('entrada')
+#2 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/produto/e...')
+#3 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#4 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#5 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/produto/entrada.do
+2009/12/02 06:22:52 [error] [system.db.CDbCommand] Error in executing SQL: UPDATE Produto SET quantAtualProduto = quantAtualProduto + 1, precoProduto = 1,252.00 WHERE idProduto = 2
+2009/12/02 06:22:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '252.00 WHERE idProduto = 2' at line 1' in D:\web\htdocs\yii\framework\db\CDbCommand.php:211
+Stack trace:
+#0 D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php(56): CDbCommand->execute()
+#1 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): ProdutoController->actionEntrada()
+#2 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#3 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#4 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('entrada')
+#6 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/produto/e...')
+#7 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#8 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#9 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/produto/entrada.do
+2009/12/03 03:46:00 [error] [php] simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: I/O warning : failed to load external entity &quot;file:///C:/xampp/tmp/php364E.tmpa&quot; (D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php:80) REQUEST_URI=/loja-rei-artur/index.php/admin/produto/entrada.do
+2009/12/03 03:46:13 [error] [php] simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: I/O warning : failed to load external entity &quot;resposta-daves.xml&quot; (D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\ProdutoController.php:80) REQUEST_URI=/loja-rei-artur/index.php/admin/produto/entrada.do
+2009/12/04 01:48:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encotrar a ação "movimentacao" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:439
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(262): CController->missingAction('movimentacao')
+#1 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('movimentacao')
+#2 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/produto/m...')
+#3 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#4 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#5 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/produto/movimentacao/id/2.do
+2009/12/06 18:54:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/relatorio/relatorio3".' in D:\web\htdocs\yii\framework\web\CWebApplication.php:336
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/relatorio...')
+#1 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#2 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#3 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/relatorio/relatorio3.do
+2009/12/06 20:16:08 [error] [system.db.CDbCommand] Error in querying SQL: SELECT * FROM Pedido p INNER JOIN PedidoItem pi ON (p.idPedido = pi.idPedido) WHERE YEAR(p.dataPedido) = '2009' OREDER BY p.dataPedido ASC
+2009/12/06 20:16:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falhou ao executar o comando SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OREDER BY p.dataPedido ASC' at line 1' in D:\web\htdocs\yii\framework\db\CDbCommand.php:318
+Stack trace:
+#0 D:\web\htdocs\yii\framework\db\CDbCommand.php(237): CDbCommand->queryInternal('fetchAll', 2)
+#1 D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\RelatorioController.php(16): CDbCommand->queryAll()
+#2 D:\web\htdocs\yii\framework\web\actions\CInlineAction.php(32): RelatorioController->actionRelatorio3()
+#3 D:\web\htdocs\yii\framework\web\CController.php(300): CInlineAction->run()
+#4 D:\web\htdocs\yii\framework\web\CController.php(278): CController->runAction(Object(CInlineAction))
+#5 D:\web\htdocs\yii\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('relatorio3')
+#7 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/relatorio...')
+#8 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#9 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#10 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/relatorio/relatorio3.do
+2009/12/07 06:57:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'O sistema não foi capaz de encotrar a ação "relatorio2" solicitada.' in D:\web\htdocs\yii\framework\web\CController.php:439
+Stack trace:
+#0 D:\web\htdocs\yii\framework\web\CController.php(262): CController->missingAction('relatorio2')
+#1 D:\web\htdocs\yii\framework\web\CWebApplication.php(332): CController->run('relatorio2')
+#2 D:\web\htdocs\yii\framework\web\CWebApplication.php(120): CWebApplication->runController('admin/relatorio...')
+#3 D:\web\htdocs\yii\framework\base\CApplication.php(133): CWebApplication->processRequest()
+#4 D:\web\htdocs\loja-rei-artur\index.php(8): CApplication->run()
+#5 {main} REQUEST_URI=/loja-rei-artur/index.php/admin/relatorio/relatorio2.do
+2009/12/07 07:44:50 [error] [php] Cannot use a scalar value as an array (D:\web\htdocs\loja-rei-artur\protected\modules\admin\controllers\RelatorioController.php:63) REQUEST_URI=/loja-rei-artur/index.php/admin/relatorio/relatorio2.do

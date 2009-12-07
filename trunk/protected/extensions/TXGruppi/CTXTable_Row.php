@@ -14,7 +14,7 @@ class CTXTable_Row extends CTXTable_Element {
         $column = new CTXTable_Column($this);
         $this->columns[] = &$column;
         if (count($args) >= 1) {
-            if (empty($value)) $value = '&nbsp;';
+            if ($value === '' || $value === null) $value = '&nbsp;';
             $column->val($value);
         }
         return $returnThis ? $this : $column;

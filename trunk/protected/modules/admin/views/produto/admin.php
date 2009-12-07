@@ -24,6 +24,7 @@
         <td>
                 <?php echo CHtml::link('Fotos',array('fotos','id'=>$model->idProduto)); ?>
                 <?php echo CHtml::link('Comentários',array('comentario','id'=>$model->idProduto)); ?>
+                <?php echo CHtml::link('Movimentação',array('movimentacao','id'=>$model->idProduto)); ?>
                 <?php echo CHtml::link('Editar',array('update','id'=>$model->idProduto)); ?>
                 <?php echo CHtml::linkButton('Apagar',array(
                 'submit'=>'',
